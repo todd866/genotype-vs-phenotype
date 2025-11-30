@@ -116,11 +116,13 @@ Where:
 
 The phenotype is a linear readout: `x = W_out · h_T`
 
-Cancer mortality emerges via: `μ_S = μ_0(1 - α·r)` where `r` is repair allocation extracted from the phenotype.
+Cancer mortality emerges via: $\mu_S = \mu_0(1 - \alpha \cdot r)$ where $r$ is repair allocation extracted from the phenotype.
 
 ## Key Result
 
-**Proposition 1 (Non-identifiability):** For any allele-based mortality pattern {μ, μ+δ}, there exists an environment pair that produces identical patterns via plasticity. The models are distinguishable only through intervention experiments.
+![Twin Worlds Experiment](figures/fig6_twin_worlds.png)
+
+**Proposition 1 (Non-identifiability):** For any allele-based mortality pattern $\{\mu, \mu+\delta\}$, there exists an environment pair that produces identical patterns via plasticity. The models are distinguishable only through intervention experiments.
 
 ---
 
