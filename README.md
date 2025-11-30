@@ -14,7 +14,7 @@ This paper responds to [Sierra et al. (2025)](https://doi.org/10.1126/sciadv.adw
 
 We offer a more parsimonious explanation: **cancer is an entropic consequence of high-volatility development, not an adaptation**.
 
-Cooperative species don't evolve cancer suppression—they develop in buffered environments that produce fewer cellular bifurcations in the first place. The same developmental coherence that enables social cooperation also stabilizes cellular trajectories, reducing cancer risk as a side effect.
+Cooperative species don't evolve cancer suppression—they develop in buffered environments where cells are less likely to bifurcate away from the organismal attractor. Cancer, on this view, is not "broken cells" but cells finding an alternative stable state (reverting to unicellular-mode behavior). The same developmental coherence that enables social cooperation also keeps cellular trajectories locked to the organismal attractor, reducing cancer as a side effect.
 
 **Occam's Razor:** Don't invoke programmed obsolescence when thermodynamics suffices.
 
@@ -22,7 +22,7 @@ Cooperative species don't evolve cancer suppression—they develop in buffered e
 
 ## Abstract
 
-Biological development is a high-dimensional dynamical process that cannot explore its state space in finite time—it is *nonergodic*. We argue that this nonergodicity, combined with low-dimensional genetic anchors, explains why cooperative species exhibit lower cancer rates without requiring adaptive cancer suppression. The genome constrains which regions of developmental state space are reachable, but environmental history determines which attractor basin the system occupies. Cooperative environments buffer developmental noise, reducing the probability of cellular bifurcations (cancer) as an entropic consequence rather than an evolved defense. We formalize this via the **Dimensional Gap** (Δ_D), which quantifies when allele-based and trajectory-based models become non-identifiable from aggregate data.
+Biological development is a high-dimensional dynamical process that cannot explore its state space in finite time—it is *nonergodic*. We argue that this nonergodicity, combined with low-dimensional genetic anchors, explains why cooperative species exhibit lower cancer rates without requiring adaptive cancer suppression. The genome constrains which regions of developmental state space are reachable, but environmental history determines which attractor basin the system occupies. Cooperative environments buffer developmental noise, reducing the probability that cells bifurcate into alternative attractors (cancer as attractor escape, not mutation accumulation). We formalize this via the **Dimensional Gap** (Δ_D), which quantifies when allele-based and trajectory-based models become non-identifiable from aggregate data.
 
 ---
 
@@ -181,7 +181,7 @@ Key finding: **The same coherence parameter (c) that suppresses cancer also driv
 ### 2. Fractal Cooperation
 
 The same coherence parameter `c` that suppresses cancer also enables cooperation:
-- **Within organisms:** Coherent development prevents cellular bifurcations (cancer)
+- **Within organisms:** Coherent development keeps cells in the organismal attractor (prevents cancer)
 - **Between organisms:** Cooperative groups create stable developmental environments
 
 This is "fractal" because the same mechanism—attractor trapping in high-dimensional systems—operates at multiple scales.
