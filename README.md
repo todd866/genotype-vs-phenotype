@@ -61,7 +61,7 @@ This generates all 8 figures in the `figures/` directory.
 
 This paper was developed using an AI-assisted workflow. In the spirit of open science, here's exactly how it worked:
 
-### Primary Drafting: Claude Code (Claude 4.5 Opus)
+### Primary Drafting: Claude Code (Opus 4.5)
 
 The paper was developed interactively using [Claude Code](https://claude.com/claude-code), Anthropic's CLI tool. The workflow was:
 
@@ -78,7 +78,7 @@ The paper was developed interactively using [Claude Code](https://claude.com/cla
 
 5. **Citation integration:** References to Waddington, Kauffman, Lissek, Rosen, etc. to ground the argument
 
-### Feedback Loop: Gemini 3 Pro + GPT 5.1 Pro
+### Feedback Loop: Gemini 2.5 Pro + GPT o3
 
 After drafting, I fed the paper to Gemini and GPT for critical feedback. This revealed:
 
@@ -88,6 +88,18 @@ After drafting, I fed the paper to Gemini and GPT for critical feedback. This re
 - **Figure numbering mismatches** (fixed to match paper order)
 
 Each round of feedback was implemented via Claude Code.
+
+### How many revisions?
+
+At submission, I asked each model to count revision cycles from their conversation history:
+
+| Model | Counted | What they tracked |
+|-------|---------|-------------------|
+| GPT o3 | ~17 cycles | Full PDF/TEX/code bundle updates |
+| Gemini 2.5 Pro | ~38 rounds | Substantive prompt-response pairs |
+| Claude Code | ??? | Didn't count, just vibed |
+
+The truth is somewhere north of **50 complete revision rounds** across the three systems. The paper went through multiple reframings (from "complexity" to "nonergodicity"), added entire sections (Price equation, Hydra response), and caught numerous equation/code mismatches through this multi-model workflow.
 
 ### Figure Design Philosophy
 
