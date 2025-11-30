@@ -117,7 +117,7 @@ Where:
 
 The phenotype is a linear readout: `x = W_out · h_T`
 
-Cancer mortality emerges via: `μ_S = μ_0(1 - α · r)` where `r` is repair allocation extracted from the phenotype.
+Cancer mortality emerges via: `μ_S = μ_0(1 - α · c)` where `c` is developmental coherence—how coordinated the trajectory was. Cancer is attractor bifurcation: cells diverging from the organismal trajectory.
 
 ## Key Result
 

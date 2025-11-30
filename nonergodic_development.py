@@ -349,9 +349,9 @@ def figure2_population_level_patterns():
     print("Generated: figures/fig2_population_patterns.pdf")
 
 
-def figure3_projection_and_information_loss():
+def figure4_projection_loss():
     """
-    Figure 3: Information loss under projection.
+    Figure 4: Information loss under projection.
 
     Key insight:
     - Low-D allele models are projections of high-D developmental reality
@@ -467,9 +467,9 @@ def figure3_projection_and_information_loss():
     print("Generated: figures/fig4_projection_loss.pdf")
 
 
-def figure4_prediction_divergence():
+def figure6_intervention_test():
     """
-    Figure 4: Where models diverge in prediction.
+    Figure 6: Where models diverge in prediction.
 
     The key testable difference:
     - Model A (allele): Changing environment shouldn't change μ_S
@@ -555,11 +555,11 @@ def figure4_prediction_divergence():
     print("Generated: figures/fig6_intervention_test.pdf")
 
 
-def figure5_causal_dags():
+def figure3_causal_dags():
     """
-    Figure 5: Causal DAGs contrasting Model A vs Model B.
+    Figure 3: Causal DAGs contrasting Model A vs Model B.
 
-    Shows the structural difference between allele-based and policy-based mechanisms.
+    Shows the structural difference between allele-based and trajectory-based mechanisms.
     """
     fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
@@ -657,13 +657,13 @@ def figure5_causal_dags():
     print("Generated: figures/fig3_causal_dags.pdf")
 
 
-def figure6_twin_worlds():
+def figure5_twin_worlds():
     """
-    Figure 6: Twin worlds experiment (Proposition 2 demonstration).
+    Figure 5: Twin worlds experiment (Proposition demonstration).
 
     Same genotype distribution developed in cooperative vs competitive worlds.
     Shows that naive allele inference would "find" oncogenic variants
-    even when all variation is due to plastic policy.
+    even when all variation is due to trajectory differences.
 
     This provides the empirical demonstration of Proposition 2's non-identifiability
     claim: aggregate patterns are indistinguishable between Model A and Model B.
@@ -759,15 +759,15 @@ def figure6_twin_worlds():
 
 
 if __name__ == '__main__':
-    print("Generating figures for genotype ≠ phenotype paper...")
+    print("Generating figures for Nonergodic Development paper...")
     print("=" * 50)
 
     figure1_same_genotype_different_phenotype()
     figure2_population_level_patterns()
-    figure3_projection_and_information_loss()
-    figure4_prediction_divergence()
-    figure5_causal_dags()
-    figure6_twin_worlds()
+    figure4_projection_loss()
+    figure6_intervention_test()
+    figure3_causal_dags()
+    figure5_twin_worlds()
 
     print("=" * 50)
     print("All figures generated in figures/ directory")
