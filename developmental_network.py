@@ -460,10 +460,10 @@ def figure3_projection_and_information_loss():
                 arrowprops=dict(arrowstyle='->', color='black'))
 
     plt.tight_layout()
-    plt.savefig('figures/fig3_projection_loss.pdf')
-    plt.savefig('figures/fig3_projection_loss.png')
+    plt.savefig('figures/fig4_projection_loss.pdf')
+    plt.savefig('figures/fig4_projection_loss.png')
     plt.close()
-    print("Generated: figures/fig3_projection_loss.pdf")
+    print("Generated: figures/fig4_projection_loss.pdf")
 
 
 def figure4_prediction_divergence():
@@ -548,10 +548,10 @@ def figure4_prediction_divergence():
     ax2.set_ylim(0, 0.12)
 
     plt.tight_layout()
-    plt.savefig('figures/fig4_prediction_divergence.pdf')
-    plt.savefig('figures/fig4_prediction_divergence.png')
+    plt.savefig('figures/fig6_intervention_test.pdf')
+    plt.savefig('figures/fig6_intervention_test.png')
     plt.close()
-    print("Generated: figures/fig4_prediction_divergence.pdf")
+    print("Generated: figures/fig6_intervention_test.pdf")
 
 
 def figure5_causal_dags():
@@ -650,10 +650,10 @@ def figure5_causal_dags():
     ax2.text(6, 0.5, 'E enters directly into development and policy', ha='center', fontsize=10, style='italic')
 
     plt.tight_layout()
-    plt.savefig('figures/fig5_causal_dags.pdf')
-    plt.savefig('figures/fig5_causal_dags.png')
+    plt.savefig('figures/fig3_causal_dags.pdf')
+    plt.savefig('figures/fig3_causal_dags.png')
     plt.close()
-    print("Generated: figures/fig5_causal_dags.pdf")
+    print("Generated: figures/fig3_causal_dags.pdf")
 
 
 def figure6_twin_worlds():
@@ -751,10 +751,10 @@ def figure6_twin_worlds():
     fig.legend(handles, labels, loc='lower center', ncol=2, bbox_to_anchor=(0.5, -0.02), fontsize=9)
 
     plt.tight_layout(rect=[0, 0.05, 1, 1])
-    plt.savefig('figures/fig6_twin_worlds.pdf')
-    plt.savefig('figures/fig6_twin_worlds.png')
+    plt.savefig('figures/fig5_twin_worlds.pdf')
+    plt.savefig('figures/fig5_twin_worlds.png')
     plt.close()
-    print("Generated: figures/fig6_twin_worlds.pdf")
+    print("Generated: figures/fig5_twin_worlds.pdf")
 
 
 if __name__ == '__main__':
