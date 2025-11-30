@@ -95,11 +95,11 @@ At submission, I asked each model to count revision cycles from their conversati
 
 | Model | Counted | What they tracked |
 |-------|---------|-------------------|
-| GPT o3 | ~17 cycles (40 turns, 44k words) | Full PDF/TEX/code bundle updates |
+| GPT o3 | ~17 cycles (40 turns) | Full PDF/TEX/code bundle updates |
 | Gemini 2.5 Pro | ~38 rounds | Substantive prompt-response pairs |
 | Claude Code | ??? | Didn't count, just vibed |
 
-The GPT conversation alone spans from "what is this Sierra paper?" to final submission review—40 user turns covering theory development, multiple reframings, figure iterations, and equation/code consistency checks. Combined with Gemini and Claude Code, the paper went through **100+ total interactions** across all three systems before submission.
+The combined GPT + Gemini conversation log is **169 pages** spanning from "what is this Sierra paper?" to final submission review. Add in the Claude Code sessions (not logged) and the paper went through **100+ total interactions** across all three systems before submission.
 
 ### Figure Design Philosophy
 
