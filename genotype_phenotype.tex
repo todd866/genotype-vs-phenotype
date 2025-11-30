@@ -63,6 +63,8 @@ This matters because the same aggregate pattern (``cooperative species have less
 
 These models are \textit{non-identifiable} from aggregate cross-species data but diverge sharply in their predictions for interventions: Model A predicts that changing an organism's environment should not change its cancer risk (determined by alleles), while Model B predicts substantial phenotypic shifts in response to environmental change.
 
+This perspective aligns with recent theoretical shifts in this journal challenging the exclusivity of mutation-centric explanations for malignancy. Lissek \cite{lissek2024} proposed ``cancer memory''---a form of physiological learning---as an alternative to clonal evolution for establishing malignant phenotypes. Our work provides the information-theoretic dual to this biological argument: by defining the \textbf{Dimensional Gap} ($\Delta_D$), we supply a formal bound on \textit{why} such memory-based mechanisms are invisible to standard genetic tools. The high-dimensional ``learned'' state is lost when projected onto the low-dimensional genotype space.
+
 In this paper, we:
 \begin{enumerate}
     \item Formalize a minimal developmental network model in which genotype parameterizes a dynamical system that maps environmental histories to phenotypes (Section~\ref{sec:model}).
@@ -348,6 +350,16 @@ This marginalization loses information about the environment-dependent structure
 
 Even in our minimal toy model, with $L=5$ genetic dimensions, $m=20$ developmental state dimensions, $n=10$ phenotype dimensions, and $k=1$ measured trait ($\mu_S$), we have $\Delta_D = (20+10)-(5+1) = 24$. In real organisms, $\Delta_D$ will be vastly larger, making non-identifiability correspondingly worse.
 
+\subsection{Theoretical Context: Memory vs.\ Mutation}
+
+Our results offer a mathematical formalization for the ``cancer memory'' hypothesis recently debated in this journal \cite{lissek2024}. While Lissek argued biologically that malignancy can arise from epigenetic or physiological memory rather than random mutation, our ``Twin Worlds'' experiment (Figure~\ref{fig:twins}) demonstrates the statistical consequences of this mechanism.
+
+When $\Delta_D \gg 0$, the developmental system acts as a high-capacity memory buffer that integrates environmental inputs \cite{lee2022,letsou2024}. The ``missing heritability'' in cancer studies is thus not missing genetic data, but rather the ``forgotten'' information of environmental history---information that is causally active in the phenotype but mathematically marginalized in the allele model.
+
+This connects to broader systems-theoretic perspectives on evolution. Corning \cite{corning2022} argued that evolution is primarily about functional organization rather than individual genes; Fontana \cite{fontana2023} proposed unified developmental models linking ageing and cancer. Our framework provides the formal information-theoretic machinery: the distinction between ``evolved'' (Model A) and ``learned'' (Model B) cancer traits is not merely semantic but represents a fundamental topological gap---the Dimensional Gap $\Delta_D$---in how we map genotype to phenotype.
+
+In the tradition of Rosen's critique of algorithmic biology, we demonstrate that the gene-as-algorithm assumption is not merely an approximation but a projection that actively discards the causal structure of the developmental system.
+
 
 \section{Conclusion}
 
@@ -422,6 +434,21 @@ Aktipis, C.A., et al. (2015). Cancer across the tree of life: cooperation and ch
 
 \bibitem{wagner2011}
 Wagner, A. (2011). \emph{The Origins of Evolutionary Innovations: A Theory of Transformative Change in Living Systems}. Oxford University Press.
+
+\bibitem{lissek2024}
+Lissek, T. (2024). Cancer memory as a mechanism to establish malignancy. \emph{BioSystems}, 247, 105381. \url{https://doi.org/10.1016/j.biosystems.2024.105381}
+
+\bibitem{lee2022}
+Lee, C., Axtell, M., \& Bhattacharya, S. (2022). Evolution and maintenance of phenotypic plasticity. \emph{BioSystems}, 222, 104782. \url{https://doi.org/10.1016/j.biosystems.2022.104782}
+
+\bibitem{letsou2024}
+Letsou, W. (2024). The indispensable role of time in autonomous development. \emph{BioSystems}, 246, 105354. \url{https://doi.org/10.1016/j.biosystems.2024.105354}
+
+\bibitem{corning2022}
+Corning, P.A. (2022). A systems theory of biological evolution. \emph{BioSystems}, 214, 104630. \url{https://doi.org/10.1016/j.biosystems.2022.104630}
+
+\bibitem{fontana2023}
+Fontana, A. (2023). Unravelling the nexus: Towards a unified model of development, ageing, and cancer. \emph{BioSystems}, 234, 105066. \url{https://doi.org/10.1016/j.biosystems.2023.105066}
 
 \end{thebibliography}
 
