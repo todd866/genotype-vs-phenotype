@@ -2,15 +2,29 @@
 
 **Paper:** *Nonergodic Development: How High-Dimensional Systems with Low-Dimensional Anchors Generate Phenotypes*
 
-**Target journal:** BioSystems
+**Status:** Submitted to BioSystems (BIOSYS-S-25-01324)
 
 **Author:** Ian Todd, University of Sydney
 
 ---
 
+## The Argument
+
+This paper responds to [Sierra et al. (2025)](https://doi.org/10.1126/sciadv.adw0685) in *Science Advances*, who proposed the **"Hydra effect"**: cancer as adaptive programmed obsolescence in competitive species. Their data show that cooperative mammals have lower cancer rates than competitive ones.
+
+We offer a more parsimonious explanation: **cancer is an entropic consequence of high-volatility development, not an adaptation**.
+
+Cooperative species don't evolve cancer suppression—they develop in buffered environments that produce fewer cellular bifurcations in the first place. The same developmental coherence that enables social cooperation also stabilizes cellular trajectories, reducing cancer risk as a side effect.
+
+**Occam's Razor:** Don't invoke programmed obsolescence when thermodynamics suffices.
+
+---
+
 ## Abstract
 
-Biological development is a high-dimensional dynamical process that cannot explore its state space in finite time—it is *nonergodic*. We argue that this nonergodicity, combined with low-dimensional genetic anchors, is the fundamental reason why genotype does not algorithmically determine phenotype. The genome constrains which regions of developmental state space are reachable, but environmental history determines which attractor basin the system occupies. We formalize this via the **Dimensional Gap** (Δ_D), which quantifies when allele-based and trajectory-based models become non-identifiable from aggregate data.
+Biological development is a high-dimensional dynamical process that cannot explore its state space in finite time—it is *nonergodic*. We argue that this nonergodicity, combined with low-dimensional genetic anchors, explains why cooperative species exhibit lower cancer rates without requiring adaptive cancer suppression. The genome constrains which regions of developmental state space are reachable, but environmental history determines which attractor basin the system occupies. Cooperative environments buffer developmental noise, reducing the probability of cellular bifurcations (cancer) as an entropic consequence rather than an evolved defense. We formalize this via the **Dimensional Gap** (Δ_D), which quantifies when allele-based and trajectory-based models become non-identifiable from aggregate data.
+
+---
 
 ## Repository Contents
 
@@ -144,24 +158,42 @@ Key finding: **The same coherence parameter (c) that suppresses cancer also driv
 - Cells cooperating within organisms (coherence prevents cancer)
 - Organisms cooperating within groups (coherence creates stable environment)
 
-## Key Result
+## Key Results
+
+### 1. Twin Worlds (Non-identifiability)
 
 ![Twin Worlds Experiment](figures/fig5_twin_worlds.png)
 
-**Proposition 1 (Non-identifiability):** For any allele-based mortality pattern {μ, μ+δ}, there exists an environment pair that produces identical patterns via trajectory-based mechanisms. The models are distinguishable only through intervention experiments.
+**Proposition 1:** For any allele-based mortality pattern {μ, μ+δ}, there exists an environment pair that produces identical patterns via trajectory-based mechanisms. The models are distinguishable only through intervention experiments.
 
-**The core insight:** Some of the "missing heritability" in GWAS may be missing trajectory information, not missing variants. The dimensional gap Δ_D quantifies how much information is lost when we project from (anchor, trajectory, attractor) to (genotype, phenotype).
+### 2. Fractal Cooperation
+
+The same coherence parameter `c` that suppresses cancer also enables cooperation:
+- **Within organisms:** Coherent development prevents cellular bifurcations (cancer)
+- **Between organisms:** Cooperative groups create stable developmental environments
+
+This is "fractal" because the same mechanism—attractor trapping in high-dimensional systems—operates at multiple scales.
+
+### Implications
+
+- Some "missing heritability" in GWAS may be missing trajectory information, not missing variants
+- The Dimensional Gap (Δ_D) quantifies information lost when projecting from (anchor, trajectory, attractor) to (genotype, phenotype)
+- Sierra et al.'s data are consistent with our model: cooperation → buffered development → fewer bifurcations → less cancer
 
 ---
 
-## Related Work
+## Context
 
-This paper builds on:
-- [Todd (2025a)](https://doi.org/10.1016/j.biosystems.2025.105608) - Falsifiability and dimensional constraints
-- [Todd (2025b)](https://doi.org/10.1016/j.biosystems.2025.105632) - Maxwell's demon and projection bounds
+**This is Paper III** in a series on dimensional constraints in biology:
 
-And responds to:
-- [Sierra et al. (2025)](https://doi.org/10.1126/sciadv.adw0685) - Cooperation and cancer in mammals
+| Paper | Focus |
+|-------|-------|
+| [Todd (2025a)](https://doi.org/10.1016/j.biosystems.2025.105608) | Falsifiability and dimensional constraints |
+| [Todd (2025b)](https://doi.org/10.1016/j.biosystems.2025.105632) | Maxwell's demon and projection bounds |
+| **This paper** | Nonergodic development and cancer |
+
+**Responds to:**
+- [Sierra et al. (2025)](https://doi.org/10.1126/sciadv.adw0685) - "Hydra effect" hypothesis in *Science Advances*
 - [Lissek (2024)](https://doi.org/10.1016/j.biosystems.2024.105381) - Cancer memory hypothesis
 
 ---
