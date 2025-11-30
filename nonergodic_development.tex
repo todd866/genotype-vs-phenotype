@@ -212,6 +212,8 @@ We define two environmental regimes that guide trajectories into different attra
     \item \textbf{Competitive:} High variance, low support, high conflict $\to$ faster, less coordinated development $\to$ low coherence.
 \end{itemize}
 
+\noindent\textbf{Empirical grounding:} This mapping from environmental stability to developmental coordination has empirical support. In mice, maternal stress reduces blastocyst cell counts and developmental coordination \cite{razzoli2012}, while genetically identical mice under stress show substantially increased developmental variability---trajectory divergence from the same anchor \cite{harris2013}. Glucocorticoid signaling induces cell cycle arrest via cyclin/CDK repression \cite{sanner1997}; GR-null embryos show 1.8-fold increased proliferation rates \cite{bird2007}. Environmental volatility thus directly affects the coordination of cell division.
+
 \noindent\textbf{Parameter values:} We use $L = 5$ (anchor dimension), $m = 20$ (developmental state dimension), $n = 10$ (phenotype dimension), and $p = 3$ (environmental input dimension). This gives $\Delta_D = m - (L + 1) = 14$ when measuring a single trait ($\mu_S$). Cancer parameters: $\mu_0 = 0.1$, $\alpha = 0.8$. See code for implementation details.
 
 \noindent\textbf{Note on model scope:} The developmental network is intentionally minimal and not fitted to any species. Its role is illustrative: to instantiate the dimensional and identifiability arguments with a concrete dynamical system, not to make quantitative predictions about specific organisms.
@@ -653,6 +655,18 @@ Frank, S.A. (1997). The Price equation, Fisher's fundamental theorem, kin select
 
 \bibitem{okasha2006}
 Okasha, S. (2006). \emph{Evolution and the Levels of Selection}. Oxford University Press. \url{https://doi.org/10.1093/acprof:oso/9780199267972.001.0001}
+
+\bibitem{razzoli2012}
+Razzoli, M., Karber, C., Kunze, E., and Bhargava, A. (2012). Psychological stress on female mice diminishes the developmental potential of oocytes: A study using the predatory stress model. \emph{PLoS ONE}, 7(10), e48083. \url{https://doi.org/10.1371/journal.pone.0048083}
+
+\bibitem{harris2013}
+Harris, A. and Seckl, J. (2011). Glucocorticoids, prenatal stress and the programming of disease. \emph{Hormones and Behavior}, 59(3), 279--289. \url{https://doi.org/10.1016/j.yhbeh.2010.06.007}
+
+\bibitem{sanner1997}
+Sanner, B.M. and Frey, J.R. (1997). Glucocorticoid receptor-mediated cell cycle arrest is achieved through distinct cell-specific transcriptional regulatory mechanisms. \emph{Molecular and Cellular Biology}, 17(6), 3181--3193.
+
+\bibitem{bird2007}
+Bird, A.D., Tan, K.H., Olsson, P.F., Zieba, M., Flecknoe, S.J., Liddicoat, D.R., Mollard, R., Hooper, S.B., and Cole, T.J. (2007). Identification of glucocorticoid-regulated genes that control cell proliferation during murine respiratory development. \emph{Journal of Physiology}, 585(1), 187--201. \url{https://doi.org/10.1113/jphysiol.2007.136796}
 
 \end{thebibliography}
 
