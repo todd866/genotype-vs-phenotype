@@ -100,11 +100,13 @@ In this view, the ``effect'' of a genetic variant is not a fixed quantity but de
 We define a quantity that captures the mismatch between genetic and phenotypic dimensionality:
 
 \begin{definition}[Dimensional Gap]
-Let $L$ be the dimension of the genotype space, $m$ the dimension of the developmental state space, $n$ the dimension of the phenotype space, and $k$ the dimension of measured/observed traits. The \textbf{dimensional gap} is:
+Let $L$ be the dimension of the genotype space and $k$ the dimension of measured traits. Let the developmental system evolve on a manifold $\mathcal{M}$ with \textbf{effective dimension} $m_{\text{eff}}$. The \textbf{dimensional gap} is:
 \begin{equation}
-    \Delta_D = (m + n) - (L + k)
+    \Delta_D = m_{\text{eff}} - (L + k)
 \end{equation}
 \end{definition}
+
+\noindent\textbf{Remark.} While the physical state space of a biological system may be extremely high-dimensional, $m_{\text{eff}}$ represents the degrees of freedom of the regulatory control network. When $\Delta_D \gg 0$, the mapping from genotype to phenotype is strictly non-invertible without full knowledge of the environmental history that constrained the path through $\mathcal{M}$.
 
 When $\Delta_D \gg 0$, the developmental system has far more degrees of freedom than the genetic input or measured output. This creates a many-to-one mapping at both ends: many developmental trajectories are consistent with any given genotype, and many mechanisms collapse to the same observed phenotype. (In our toy model, Section~\ref{sec:model}, $\Delta_D \approx 24$; in real organisms it will be much larger.)
 
@@ -259,6 +261,8 @@ Figure~\ref{fig:projection} illustrates the information loss that results from d
 
 Figure~\ref{fig:twins} provides a decisive demonstration: identical genotype distributions in different worlds produce patterns that naive allele models would interpret as genetic differences. A naive comparative study could infer different ``oncogenic allele frequencies'' between worlds that in fact share identical genotype distributions.
 
+Crucially, an observer calculating the genetic distance between the World 1 and World 2 populations would find a Fixation Index of $F_{ST} \approx 0$, yet would observe significantly different phenotype distributions ($P_{ST} \gg 0$). A standard GWAS trained on this combined data would fail to find significant SNPs, leading to the conclusion of ``missing heritability,'' when in fact the heritability is entirely environmental.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{figures/fig6_twin_worlds.pdf}
@@ -286,9 +290,9 @@ We emphasize that allele-based models are not wrong. Sierra et al.'s finding tha
 
 Our point is narrower: the aggregate pattern ``cooperative = less cancer'' is equally consistent with:
 \begin{enumerate}
-    \item Selection having already fixed cancer-suppressing alleles in cooperative lineages (Model A)
-    \item Selection having favored plastic developmental policies that respond to cooperative cues (Model B)
-    \item Both (which is probably the truth)
+    \item Selection having already fixed cancer-suppressing alleles in cooperative lineages (Model A).
+    \item Selection having favored plastic developmental policies that respond to cooperative cues (Model B).
+    \item \textbf{Genetic assimilation:} A process where an initially plastic response (Model B) becomes canalized into a fixed genetic trait (Model A) over evolutionary time due to the consistent adaptive value of the phenotype in stable environments.
 \end{enumerate}
 
 The models are non-identifiable from cross-species comparative data. Distinguishing them requires environmental manipulation experiments.
@@ -322,13 +326,50 @@ Cancer risk in cooperative vs.\ competitive mammals, facial morphology, and huma
 
 \subsection{Specific Empirical Predictions}
 
-The models make divergent predictions that are in principle testable:
+While the models often produce indistinguishable aggregate statistics, they diverge structurally. Table~\ref{tab:model_comparison} contrasts the mechanistic assumptions and specific predictions of each framework.
 
-\textbf{Prediction 1:} Competitive-raised individuals from cooperative species should temporarily exhibit elevated cancer risk (higher $\mu_S$) even with no genetic change.
+\begin{table}[ht]
+    \centering
+    \caption{\textbf{Contrasting Allele-Centric vs.\ Plasticity-Centric Models.} Model A and Model B are indistinguishable from static data but diverge under environmental intervention.}
+    \label{tab:model_comparison}
+    \renewcommand{\arraystretch}{1.3}
+    \small
+    \begin{tabular}{@{}p{0.22\textwidth} p{0.36\textwidth} p{0.36\textwidth}@{}}
+        \toprule
+        \textbf{Feature} & \textbf{Model A (Allele-Based)} & \textbf{Model B (Plasticity-Based)} \\
+        \midrule
+        \textbf{Core Mechanism} &
+        Genotype algorithmically determines phenotype (additive effects). &
+        Genotype parameterizes a high-D developmental system; phenotype is emergent. \\
 
-\textbf{Prediction 2:} Cooperative-raised individuals from competitive species should show increased repair allocation (higher $r$) and lower emergent $\mu_S$.
+        \textbf{Role of Environment} &
+        \textit{Filter:} Modulates selection pressures on alleles over generations. &
+        \textit{Input:} Enters directly into developmental dynamics to shape phenotype in real-time. \\
 
-\textbf{Prediction 3:} GWAS-style \textit{comparative} allele scanning for cancer across species will detect ``genetic effects'' that diminish or vanish once developmental or environmental covariates are included.
+        \textbf{Interpretation of ``Cooperative Safety''} &
+        Selection favored ``low cancer'' alleles in cooperative lineages. &
+        Cooperative cues induce plastic policies allocating more resources to repair. \\
+
+        \midrule
+        \multicolumn{3}{@{}l}{\textit{\textbf{Divergent Predictions (Testable)}}} \\
+        \midrule
+
+        \textbf{Environmental Shift} &
+        \textbf{No immediate change.} Phenotype is locked by genotype. &
+        \textbf{Immediate shift.} Phenotype adjusts to new environmental cues. \\
+
+        \textbf{Twin Worlds Result} &
+        Identical genomes $\to$ identical cancer rates ($F_{ST} \approx P_{ST}$). &
+        Identical genomes $\to$ divergent cancer rates ($F_{ST} \approx 0$, $P_{ST} \gg 0$). \\
+
+        \textbf{GWAS Implication} &
+        ``Missing heritability'' due to many small-effect variants. &
+        ``Missing heritability'' is a projection artifact ($\Delta_D \gg 0$). \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\noindent As shown in Figure~\ref{fig:prediction}, environmental interventions provide the critical test. Model A predicts that moving a ``competitive'' genotype to a cooperative environment will not change its baseline mortality $\mu_S$. Model B predicts a significant reduction in $\mu_S$ as the developmental system integrates the new safety cues.
 
 \subsection{Dimensional Constraints on Interpretation}
 
