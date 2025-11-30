@@ -12,25 +12,25 @@
 
 \opening{Dear Professor Igamberdiev,}
 
-I am pleased to submit ``Genotype $\neq$ Phenotype: High-Dimensional Development, Plasticity, and the Limits of Allele Stories'' for consideration in \emph{BioSystems}.
+I am pleased to submit ``Nonergodic Development: How High-Dimensional Systems with Low-Dimensional Anchors Generate Phenotypes'' for consideration in \emph{BioSystems}.
 
-This manuscript provides a mathematical formalization of a debate currently active in this journal. Lissek (2024, \emph{BioSystems} 247) recently proposed that malignancy can develop through ``cancer memory''---epigenetic mechanisms unleashed by initial oncogenic changes---rather than relying solely on continued mutation accumulation. My work supplies the information-theoretic dual to this biological argument: I show that when phenotype emerges from low-dimensional genetic parameters passing through a high-dimensional developmental system, allele-based and plasticity-based models become \textbf{formally non-identifiable} from aggregate observational data.
+This manuscript develops a theoretical framework for understanding why genotype does not algorithmically determine phenotype. The core insight is that biological development is \textbf{nonergodic}: the state space of a developing organism is too vast to explore in biological time. Developmental trajectories are trapped in attractor basins, and the phenotype reflects which basin was entered---not an algorithmic genotype-to-phenotype mapping.
 
-The paper introduces the ``Dimensional Gap'' ($\Delta_D$), which quantifies when this non-identifiability arises, and demonstrates it through a minimal developmental network model. The ``Twin Worlds'' experiment shows that identical genotype distributions in different environments produce patterns a naive allele model would misinterpret as genetic differences---with $F_{ST} \approx 0$ yet $P_{ST} \gg 0$. This directly explains why ``missing heritability'' in GWAS studies may reflect projection artifacts rather than missing variants.
+The genome functions as a low-dimensional \textit{anchor} that constrains which attractor basins are accessible, while environmental history determines which basin the developmental trajectory enters. I formalize this via the \textbf{Dimensional Gap} ($\Delta_D$), which quantifies the mismatch between anchor dimensionality and developmental degrees of freedom. When $\Delta_D \gg 0$, allele-based and trajectory-based models become non-identifiable from aggregate data.
 
-The work responds to Sierra et al.\ (2025, \emph{Science Advances}), who documented lower cancer prevalence in cooperative mammalian species and modeled this as allele-based selection. I show their finding is equally consistent with plastic developmental policies responding to cooperative environmental cues---a distinction with significant implications for intervention strategies.
+The ``Twin Worlds'' experiment demonstrates this dramatically: identical genotype distributions in different environmental regimes produce patterns that naive genetic analysis would misinterpret as allele frequency differences ($F_{ST} \approx 0$ yet $P_{ST} \gg 0$). This provides a formal explanation for ``missing heritability'' in GWAS---the heritability is not missing variants but missing trajectory information.
 
-This submission continues a research program on dimensional constraints in biology previously published in \emph{BioSystems}:
+I apply this framework to Sierra et al.\ (2025, \emph{Science Advances}), who found that cooperative mammalian species have lower cancer prevalence. Their allele-based interpretation is compelling, but my framework shows it is not uniquely supported: cooperative environments may guide developmental trajectories into high-repair attractor basins that already exist in the genetically-defined landscape.
+
+This work provides formal foundations for Lissek's (2024, \emph{BioSystems}) ``cancer memory'' hypothesis: in nonergodic terms, epigenetic memory \textit{is} the trapped state---the system cannot spontaneously return to its previous attractor basin.
+
+This submission continues a research program on dimensional constraints in biology:
 \begin{itemize}
     \item Todd (2025a): ``The limits of falsifiability'' (DOI: 10.1016/j.biosystems.2025.105608)
     \item Todd (2025b): ``Timing inaccessibility and the projection bound'' (DOI: 10.1016/j.biosystems.2025.105632)
 \end{itemize}
 
-In the tradition of Rosen's critique of algorithmic biology, I demonstrate that the gene-as-algorithm assumption is not merely an approximation but a projection that actively discards causal structure.
-
-The manuscript engages directly with recent \emph{BioSystems} publications including Lee et al.\ (2022) on phenotypic plasticity, Letsou (2024) on temporal structure in development, Corning (2022) on systems evolution, and Fontana (2023) on the development-ageing-cancer nexus. I believe it will be of strong interest to the journal's readership.
-
-All simulation code is publicly available at \url{https://github.com/todd866/genotype-vs-phenotype}, with full documentation of the AI-assisted workflow used in manuscript preparation.
+The manuscript engages with recent \emph{BioSystems} publications including Lee et al.\ (2022) on plasticity, Letsou (2024) on temporal development, Corning (2022) on systems evolution, and Fontana (2023) on development-ageing-cancer connections. All simulation code is available at \url{https://github.com/todd866/genotype-vs-phenotype}.
 
 This manuscript is original and not under consideration for publication elsewhere.
 

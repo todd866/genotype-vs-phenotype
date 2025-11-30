@@ -27,8 +27,9 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\E}{\mathbb{E}}
 
-\title{Genotype $\neq$ Phenotype: High-Dimensional Development, \\
-Plasticity, and the Limits of Allele Stories}
+\title{Nonergodic Development: \\
+How High-Dimensional Systems with Low-Dimensional Anchors \\
+Generate Phenotypes}
 
 \author{Ian Todd\\
 Sydney Medical School\\
@@ -42,121 +43,143 @@ University of Sydney\\
 \maketitle
 
 \begin{abstract}
-The assumption that genotype algorithmically determines phenotype underlies much of evolutionary modeling, including recent work linking cooperative lifestyles to reduced cancer prevalence. We prove that this framing is incomplete in a specific, quantifiable sense: when phenotype emerges from low-dimensional genetic parameters passing through a high-dimensional developmental system that integrates environmental information, allele-based and plasticity-based models become \textit{non-identifiable} from typical observational data. Using a minimal developmental network model, we demonstrate that (1) identical genotypes produce substantially different phenotypes---including different cancer mortality rates---under different environmental histories, (2) aggregate population patterns can arise equally well from either mechanism, and (3) these mechanisms diverge only in their predictions for environmental interventions. We formalize this via a ``dimensional gap'' $\Delta_D$ that quantifies when allele-centric models become uninformative. The allele story is not wrong but is a low-dimensional projection of a high-dimensional developmental reality.
+Biological development is a high-dimensional dynamical process that cannot explore its state space in finite time---it is \textit{nonergodic}. We argue that this nonergodicity, combined with low-dimensional genetic anchors, is the fundamental reason why genotype does not algorithmically determine phenotype. The genome constrains which regions of developmental state space are reachable, but environmental history determines which attractor basin the system occupies. Using a minimal developmental network model, we demonstrate that (1) identical genotypes produce substantially different phenotypes depending on which trajectory the system follows, (2) these trapped states constitute ``developmental memory'' that is invisible to genetic analysis, and (3) the ``dimensional gap'' $\Delta_D$ between genetic parameters and developmental degrees of freedom quantifies this non-identifiability. We apply this framework to recent findings on cooperative lifestyles and cancer prevalence, showing that the pattern ``cooperative species have less cancer'' admits both allele-based and trajectory-based interpretations. The models diverge only under environmental intervention. Allele stories are not wrong but are projections that discard the nonergodic structure of development.
 \end{abstract}
 
-\textbf{Keywords:} genotype-phenotype map, developmental plasticity, non-identifiability, dimensional collapse, cancer evolution, phenotypic plasticity
+\textbf{Keywords:} nonergodicity, developmental dynamics, genotype-phenotype map, epigenetic memory, attractor basins, dimensional constraints
 
 \section{Introduction}
 
-A common implicit assumption in evolutionary biology is that genotype determines phenotype in an approximately algorithmic sense: genetic variants have ``effects'' on traits, and phenotypic evolution proceeds via changes in allele frequency. This framing underlies genome-wide association studies, quantitative genetics, and many theoretical models of trait evolution. Yet GWAS have famously failed to account for the majority of heritable variation in complex traits---the ``missing heritability'' problem \cite{manolio2009,zuk2012}---suggesting that simple additive models omit something fundamental about how genotypes produce phenotypes.
+Biological development unfolds in a high-dimensional state space. Gene regulatory networks, signaling cascades, and metabolic pathways create a system with vastly more degrees of freedom than the genome that parameterizes it. This dimensionality has a fundamental consequence: the system is \textit{nonergodic}---it cannot explore its state space in biological time. A developing organism follows one trajectory through developmental state space and ends up in one attractor basin, leaving the vast majority of possible states forever unvisited.
 
-Recent work has extended allele-centric modeling to cancer evolution. Sierra et al.\ (2025) demonstrated that cooperative mammalian species exhibit lower cancer prevalence than competitive, fast life-history species, and modeled this as selection on an ``oncogenic variant'' that increases late-life mortality \cite{sierra2025}. Their finding that cooperative environments select against cancer-promoting alleles while competitive environments can favor them (via a demographic Hydra effect) is compelling.
+This nonergodicity is not a limitation to be overcome but a feature that enables stable phenotypes. The genome acts as a low-dimensional \textit{anchor} that constrains which regions of state space are reachable, while environmental history determines which specific attractor the system occupies within those constraints. The phenotype is not algorithmically determined by the genotype; it is the trapped state of a nonergodic system whose trajectory was shaped by both genetic and environmental inputs.
 
-However, we argue that such allele-centric models are incomplete in a specific, quantifiable way. As Pigliucci \cite{pigliucci2010} emphasized, the ``genes as blueprint'' metaphor is ``not only woefully inadequate but positively misleading.'' The genotype does not algorithmically encode the phenotype; rather, genotype provides low-dimensional parameters to a high-dimensional developmental system that integrates environmental information over time \cite{alberch1991,westeberhard2003}. The phenotype---including cancer-relevant traits like somatic repair allocation---emerges from this process.
+This framework resolves a persistent puzzle in genetics: why do genome-wide association studies fail to account for the majority of heritable variation in complex traits \cite{manolio2009,zuk2012}? The ``missing heritability'' is not missing genetic variants but rather the missing environmental history---the trajectory information that determined which attractor basin each individual occupies. Additive genetic models project a high-dimensional, trajectory-dependent reality onto a low-dimensional genotype space, discarding precisely the information that distinguishes individuals with identical genotypes.
 
-This matters because the same aggregate pattern (``cooperative species have less cancer'') can arise from two mechanistically distinct processes:
+We formalize this via the \textbf{Dimensional Gap} ($\Delta_D$), which quantifies the mismatch between genetic parameters and developmental degrees of freedom. When $\Delta_D \gg 0$, the mapping from genotype to phenotype is many-to-one: the same genotype can produce different phenotypes depending on which trajectory the system followed. This creates a fundamental \textit{non-identifiability} between allele-based and trajectory-based explanations for phenotypic patterns.
+
+\subsection*{Application: Cooperative Lifestyles and Cancer}
+
+We apply this framework to a recent finding in cancer evolution. Sierra et al.\ (2025) demonstrated that cooperative mammalian species exhibit lower cancer prevalence than competitive species, and modeled this as selection on ``oncogenic variants'' \cite{sierra2025}. Their allele-based interpretation is compelling---but our framework shows it is not uniquely supported by the data.
+
+The same pattern admits a trajectory-based interpretation:
 \begin{itemize}
-    \item \textbf{Model A (allele-based):} Different alleles specify different late-life mortality rates $\mu_S$; selection favors lower $\mu_S$ in cooperative lineages.
-    \item \textbf{Model B (plasticity-based):} Organisms possess flexible developmental policies that allocate resources between somatic repair and reproduction based on perceived environmental cues; cooperative environments induce higher repair allocation, yielding lower emergent $\mu_S$.
+    \item \textbf{Allele interpretation:} Cooperative lineages have accumulated cancer-suppressing alleles through selection.
+    \item \textbf{Trajectory interpretation:} Cooperative environmental cues guide development into attractor basins with higher somatic repair allocation, yielding lower cancer mortality as an emergent property.
 \end{itemize}
 
-These models are \textit{non-identifiable} from aggregate cross-species data but diverge sharply in their predictions for interventions: Model A predicts that changing an organism's environment should not change its cancer risk (determined by alleles), while Model B predicts substantial phenotypic shifts in response to environmental change.
+These interpretations are \textit{non-identifiable} from cross-species comparative data. They diverge only in predictions for intervention: the allele model predicts that changing an organism's environment will not change its cancer risk; the trajectory model predicts substantial phenotypic shifts.
 
-This perspective aligns with recent theoretical shifts in this journal challenging the exclusivity of mutation-centric explanations for malignancy. Lissek \cite{lissek2024} proposed ``cancer memory''---epigenetic mechanisms unleashed by initial oncogenic changes---as a complement to clonal evolution for establishing malignant phenotypes. Our work provides the information-theoretic dual to this biological argument: by defining the \textbf{Dimensional Gap} ($\Delta_D$), we supply a formal bound on \textit{why} such memory-based mechanisms are invisible to standard genetic tools. The high-dimensional ``learned'' state is lost when projected onto the low-dimensional genotype space.
+This connects to Lissek's \cite{lissek2024} proposal of ``cancer memory''---epigenetic mechanisms that maintain malignant phenotypes once initiated. Our framework provides the information-theoretic foundation: the developmental system's nonergodicity \textit{is} the memory. Environmental perturbations shift the system to new attractor basins that the genome-as-anchor helps maintain.
 
 In this paper, we:
 \begin{enumerate}
-    \item Formalize a minimal developmental network model in which genotype parameterizes a dynamical system that maps environmental histories to phenotypes (Section~\ref{sec:model}).
-    \item Prove a non-identifiability proposition showing that any allele-based pattern can be matched by a plasticity-based mechanism (Section~\ref{sec:proposition}).
-    \item Demonstrate these results with simulations (Section~\ref{sec:results}).
-    \item Discuss the broader implications for evolutionary interpretation and prediction (Section~\ref{sec:discussion}).
+    \item Develop the theoretical framework of nonergodic development with low-dimensional anchors (Section~\ref{sec:theory}).
+    \item Formalize a minimal developmental network model that demonstrates these principles (Section~\ref{sec:model}).
+    \item Prove a non-identifiability proposition showing that allele-based patterns can always be matched by trajectory-based mechanisms (Section~\ref{sec:proposition}).
+    \item Demonstrate the framework with simulations, including a ``Twin Worlds'' experiment (Section~\ref{sec:results}).
+    \item Discuss implications for evolutionary biology, GWAS, and intervention design (Section~\ref{sec:discussion}).
 \end{enumerate}
 
 
-\section{Background}
+\section{Theoretical Framework}\label{sec:theory}
 
-\subsection{The Gene-as-Algorithm Assumption}
+\subsection{Nonergodicity in High-Dimensional Systems}
 
-Alberch \cite{alberch1991} introduced the concept of genotype--phenotype (G$\to$P) mapping to provide a framework for integrating genetics and developmental biology. The simplest such model treats the map $G \to P$ as approximately additive:
+A dynamical system is \textit{ergodic} if, given sufficient time, its trajectory will visit every accessible region of state space with frequency proportional to the equilibrium measure. Ergodicity underlies much of statistical mechanics: it allows us to equate time averages with ensemble averages.
+
+Biological development is not ergodic. The state space of a developing organism---the configuration of gene expression, protein concentrations, cellular positions, and tissue architectures---is astronomically large. A gene regulatory network with $N$ genes, each with $k$ expression levels, has $k^N$ possible states. For realistic values ($N \sim 20,000$, $k \sim 10$), this exceeds any timescale accessible to biological processes.
+
+\begin{definition}[Developmental Nonergodicity]
+A developmental system is \textbf{nonergodic} if its trajectory through state space cannot visit a representative sample of accessible states within the organism's lifetime. Formally, let $\mathcal{M}$ be the accessible manifold of developmental states. The system is nonergodic if:
 \begin{equation}
-    P = \sum_i \beta_i G_i + \epsilon
+    \frac{\text{Vol}(\text{trajectory})}{\text{Vol}(\mathcal{M})} \to 0
 \end{equation}
-where $G_i$ are allelic states, $\beta_i$ are effect sizes, and $\epsilon$ is noise. This framing, while computationally tractable, obscures the developmental process that connects genotype to phenotype.
+as the dimensionality of $\mathcal{M}$ increases.
+\end{definition}
 
-A more realistic view, dating to Waddington's ``epigenetic landscape'' \cite{waddington1957}, is that genotype provides parameters to a developmental dynamical system:
-\begin{equation}
-    \frac{dh}{dt} = f(h, e(t); g)
-\end{equation}
-where $h \in \R^m$ is a high-dimensional developmental state, $e(t)$ is environmental input, and $g$ is the genotype \cite{kauffman1993,huang2009}. The phenotype $x$ is then a readout of the final developmental state:
-\begin{equation}
-    x = \phi(h_T)
-\end{equation}
+This nonergodicity has a crucial consequence: the developmental trajectory is \textit{trapped}. Once the system enters an attractor basin, it cannot spontaneously explore alternative basins. The final phenotype reflects not the equilibrium distribution over possible states, but the particular basin the trajectory happened to enter.
 
-In this view, the ``effect'' of a genetic variant is not a fixed quantity but depends on the environmental history the organism experiences---a phenomenon formalized in the reaction norm framework \cite{schlichting1998}.
+\subsection{Low-Dimensional Anchors}
+
+If developmental state space is vast and trajectories are trapped, what prevents phenotypic chaos? The answer is \textit{anchoring} by low-dimensional constraints.
+
+\begin{definition}[Developmental Anchor]
+An \textbf{anchor} is a low-dimensional structure that constrains which regions of developmental state space are reachable. The genome is the primary anchor: it specifies the regulatory network topology, protein sequences, and signaling pathways that define the ``landscape'' of possible developmental trajectories.
+\end{definition}
+
+The genome does not specify which attractor basin the system will occupy---that depends on the trajectory, which depends on environmental history. But the genome constrains \textit{which basins exist} and \textit{which are reachable} from a given starting point.
+
+This is precisely Waddington's \cite{waddington1957} epigenetic landscape, reframed in dynamical systems terms: the genome shapes the hills and valleys; the developmental trajectory is a ball rolling down one particular path. Different environmental perturbations can push the ball into different valleys---but not into valleys that the landscape doesn't contain.
 
 \subsection{The Dimensional Gap}
 
-We define a quantity that captures the mismatch between genetic and phenotypic dimensionality:
+We quantify the relationship between anchor dimensionality and state space dimensionality:
 
 \begin{definition}[Dimensional Gap]
-Let $L$ be the dimension of the genotype space and $k$ the dimension of measured traits. Let the developmental system evolve on a manifold $\mathcal{M}$ with \textbf{effective dimension} $m_{\text{eff}}$. The \textbf{dimensional gap} is:
+Let $L$ be the dimension of the genotype (anchor) space and $k$ the dimension of measured phenotypic traits. Let the developmental system evolve on a manifold $\mathcal{M}$ with \textbf{effective dimension} $m_{\text{eff}}$. The \textbf{dimensional gap} is:
 \begin{equation}
     \Delta_D = m_{\text{eff}} - (L + k)
 \end{equation}
 \end{definition}
 
-\noindent\textbf{Remark.} While the physical state space of a biological system may be extremely high-dimensional, $m_{\text{eff}}$ represents the degrees of freedom of the regulatory control network. When $\Delta_D \gg 0$, the mapping from genotype to phenotype is strictly non-invertible without full knowledge of the environmental history that constrained the path through $\mathcal{M}$.
-
-When $\Delta_D \gg 0$, the developmental system has far more degrees of freedom than the genetic input or measured output. This creates a many-to-one mapping at both ends: many developmental trajectories are consistent with any given genotype, and many mechanisms collapse to the same observed phenotype. (In our toy model, Section~\ref{sec:model}, $\Delta_D \approx 24$; in real organisms it will be much larger.)
-
-Projection from high-dimensional to low-dimensional spaces destroys information in systematic ways \cite{todd2025falsifiability,todd2025maxwell}. Here we apply this insight to genotype-phenotype maps.
-
-\subsection{Cooperative Lifestyles and Cancer}
-
-Sierra et al.\ (2025) analyzed cancer prevalence across mammalian species and found a robust negative correlation between cooperative social structure and cancer mortality \cite{sierra2025}; see also \cite{aktipis2015} for broader context on cancer across the tree of life. Species with group living, plural breeding, and helper contributions exhibited lower cancer rates than solitary, competitive species.
-
-Their theoretical model posits two genotypes:
+When $\Delta_D \gg 0$, the developmental system has far more degrees of freedom than can be specified by the genome or captured by phenotypic measurement. This creates a fundamental ambiguity:
 \begin{itemize}
-    \item G1: baseline late-life mortality $\mu_S$
-    \item G2: oncogenic variant with mortality $\mu_S + \delta$
+    \item The same genotype can produce different phenotypes (depending on which trajectory/attractor)
+    \item The same phenotype can arise from different mechanisms (genotype-determined vs.\ trajectory-determined)
 \end{itemize}
 
-In competitive environments with high fertility, the G2 variant can be favored via a Hydra effect: removing older individuals frees resources for younger breeders. In cooperative environments where older individuals contribute as helpers, this effect reverses.
+The dimensional gap is the source of non-identifiability. Projecting from the high-dimensional developmental reality to the low-dimensional genotype-phenotype pair destroys the trajectory information that distinguishes otherwise identical outcomes \cite{todd2025falsifiability,todd2025maxwell}.
 
-This is a compelling result. Our point is not that it is wrong, but that the interpretation---that cancer prevalence differences reflect allelic differences---is not uniquely supported by the data.
+\subsection{Epigenetic Memory as Trapped States}
 
-\subsection{Why Humans May Be a Special Case}
+The connection to epigenetic memory is now clear. ``Epigenetic memory'' refers to heritable cellular states that are not encoded in the DNA sequence---persistent patterns of gene expression, chromatin modification, or cellular identity that are maintained across cell divisions.
 
-Singh and Glowacki (2022) argued that Late Pleistocene humans did not inhabit a single ``nomadic band'' niche but occupied a wide range of social ecologies: hierarchical and egalitarian, sedentary and mobile, small-scale and large-scale \cite{singh2022}. This ``diverse histories'' model implies that human ancestors were exposed to systematically variable environments across generations.
+In our framework, epigenetic memory is simply a \textit{trapped state} in a nonergodic developmental system. The genome (anchor) constrains which states are stable, while environmental history determines which stable state the system entered. Once entered, the state persists because the system cannot spontaneously explore alternatives.
 
-Under such conditions, selection should favor \textit{plastic developmental policies} over fixed allele-determined phenotypes \cite{westeberhard2003}. An organism that can adjust its repair-vs-reproduction allocation based on local environmental cues will outperform one locked into a single strategy.
+This provides the information-theoretic foundation for Lissek's \cite{lissek2024} ``cancer memory'' hypothesis: oncogenic changes may push the developmental system into a new attractor basin, where the nonergodic dynamics maintain the malignant phenotype without requiring continued mutation accumulation.
 
-This provides a principled reason to expect Model B (plasticity-based) mechanisms to be particularly important in humans.
+\subsection{Application Context: Cancer and Cooperation}
+
+Sierra et al.\ (2025) found that cooperative mammalian species have lower cancer prevalence than competitive species \cite{sierra2025}. Their model explains this via allele frequency differences: selection favors cancer-suppressing alleles in cooperative lineages where older individuals contribute as helpers.
+
+Our framework suggests an alternative: cooperative environmental cues may guide developmental trajectories into attractor basins with higher somatic repair allocation. The genome constrains which basins are available; the social environment determines which basin is entered. Species that consistently experience cooperative environments would consistently develop into ``low-cancer'' attractor basins---producing the same aggregate pattern as allele-based selection, but via a different mechanism.
+
+Singh and Glowacki \cite{singh2022} argued that human ancestors experienced diverse social ecologies, favoring plastic developmental policies over fixed strategies. This is precisely the regime where trajectory-based mechanisms dominate: when environments vary, selection favors genomes that anchor multiple attractor basins, allowing environment-dependent phenotype determination.
 
 
 \section{Model}\label{sec:model}
 
-We define a minimal developmental network that captures the key features: low-dimensional genetic input, high-dimensional developmental dynamics, environmental modulation, and phenotypic readout.
+We construct a minimal developmental network that instantiates the theoretical framework: the genotype serves as a low-dimensional anchor, the developmental state evolves in a high-dimensional space, and environmental history shapes the trajectory through that space.
 
-\subsection{Developmental Dynamics}
+\subsection{The Developmental System}
 
-Let $g \in \R^L$ be the genotype (with $L$ small), $e_t \in \R^p$ be the environmental input at time $t$ (with $p$ environmental dimensions), and $h_t \in \R^m$ be the developmental state (with $m \gg L$).
+Let $g \in \R^L$ be the genotype (the \textit{anchor}, with $L$ small), $e_t \in \R^p$ be the environmental input at time $t$, and $h_t \in \R^m$ be the developmental state (with $m \gg L$).
 
-The developmental dynamics follow:
+The developmental dynamics follow a recurrent network:
 \begin{equation}\label{eq:dynamics}
     h_{t+1} = \sigma\left( W_h h_t + W_e e_t + W_g g \right)
 \end{equation}
-where $W_h, W_e, W_g$ are weight matrices and $\sigma$ is a nonlinear activation (we use $\tanh$).
+where $W_h, W_e, W_g$ are weight matrices and $\sigma = \tanh$ provides nonlinearity.
 
-\subsection{Phenotype and Cancer Risk}
+The key features of this model:
+\begin{itemize}
+    \item \textbf{Nonergodicity:} The state space $\R^m$ is high-dimensional; any single trajectory visits a negligible fraction of it.
+    \item \textbf{Anchoring:} The genotype $g$ enters at every timestep, constraining which regions of state space are accessible.
+    \item \textbf{Trajectory-dependence:} The environmental history $\{e_0, e_1, \ldots, e_T\}$ determines which specific trajectory is followed within the anchor's constraints.
+    \item \textbf{Attractor dynamics:} The recurrent structure creates attractor basins; different trajectories can converge to different attractors.
+\end{itemize}
 
-The phenotype $x \in \R^n$ is a linear readout of the final developmental state:
+\subsection{Phenotype as Trapped State}
+
+The phenotype $x \in \R^n$ is a readout of the final developmental state:
 \begin{equation}
     x = W_{out} h_T
 \end{equation}
 
-We extract a ``repair allocation'' variable $r \in [0,1]$ from the phenotype, representing the organism's investment in somatic maintenance versus reproduction/competition---a classic life-history tradeoff \cite{stearns1992,roff2002}. The emergent cancer mortality is:
+This final state $h_T$ is a \textit{trapped state}---the endpoint of a nonergodic trajectory. The same genotype $g$ can produce different $h_T$ (and thus different $x$) depending on which trajectory was followed.
+
+We extract a ``repair allocation'' variable $r \in [0,1]$ from the phenotype, representing the organism's investment in somatic maintenance versus reproduction---a classic life-history tradeoff \cite{stearns1992,roff2002}. The emergent cancer mortality is:
 \begin{equation}\label{eq:mu}
     \mu_S(x) = \mu_0 (1 - \alpha \cdot r(x))
 \end{equation}
@@ -164,22 +187,22 @@ where $\mu_0$ is baseline mortality and $\alpha \in (0,1)$ is the efficacy of re
 
 \subsection{Environmental Regimes}
 
-We define two environmental regimes:
+We define two environmental regimes that guide trajectories into different attractor basins:
 \begin{itemize}
-    \item \textbf{Cooperative:} Low variance in resources, high social support, low conflict.
-    \item \textbf{Competitive:} High variance in resources, low social support, high conflict.
+    \item \textbf{Cooperative:} Low variance, high social support, low conflict $\to$ trajectories toward high-repair attractors.
+    \item \textbf{Competitive:} High variance, low support, high conflict $\to$ trajectories toward low-repair attractors.
 \end{itemize}
 
-\noindent\textbf{Parameter values:} Throughout, we use $L = 5$ (genotype dimension), $m = 20$ (developmental state dimension), $n = 10$ (phenotype dimension), and $p = 3$ (environmental input dimension). Cancer mortality parameters are $\mu_0 = 0.1$ (baseline) and $\alpha = 0.8$ (repair efficacy). In simulations, cooperative environments are implemented as low-variance, slowly varying resource and support signals, whereas competitive environments are higher-variance and more volatile (see code for exact form).
+\noindent\textbf{Parameter values:} We use $L = 5$ (anchor dimension), $m = 20$ (developmental state dimension), $n = 10$ (phenotype dimension), and $p = 3$ (environmental input dimension). This gives $\Delta_D = m - (L + 1) = 14$ when measuring a single trait ($\mu_S$). Cancer parameters: $\mu_0 = 0.1$, $\alpha = 0.8$. See code for implementation details.
 
-\subsection{Causal Structure}
+\subsection{Contrasting Interpretations}
 
-Figure~\ref{fig:dags} illustrates the causal difference between the two models:
+Figure~\ref{fig:dags} illustrates how the same outcome admits two causal interpretations:
 \begin{itemize}
-    \item \textbf{Model A:} $G \to \mu_S \to \text{Cancer}$, with environment only modulating selection on $G$.
-    \item \textbf{Model B:} $G \to \text{Dev} \to \pi(E) \to r_t \to \mu_S \to \text{Cancer}$, with environment entering directly into development and policy.
+    \item \textbf{Allele model:} $G \to \mu_S \to \text{Cancer}$. The genotype algorithmically determines mortality; environment only modulates selection pressure over evolutionary time.
+    \item \textbf{Trajectory model:} $G \to \text{Dev} \to \pi(E) \to r_t \to \mu_S$. The genotype anchors a developmental system; environment shapes the trajectory; the trapped state determines mortality.
 \end{itemize}
-Crucially, both graphs collapse to the same two-node summary (Environment $\to$ $\mu_S$) when projected onto low-dimensional observables---this is precisely the $\Delta_D$ problem.
+Both produce the same aggregate correlation (Environment $\leftrightarrow$ $\mu_S$) when projected to observables---this is the non-identifiability created by $\Delta_D > 0$.
 
 
 \section{Non-Identifiability Result}\label{sec:proposition}
@@ -211,120 +234,133 @@ This result formalizes the sense in which allele models are ``incomplete'': they
 
 \section{Results}\label{sec:results}
 
-All figures (1--6) show simulated outputs from the developmental network model in Section~\ref{sec:model}; no empirical data are used.
+All figures show simulated outputs from the developmental network model; no empirical data are used. The simulations demonstrate the core theoretical claims: trajectory-dependence, attractor dynamics, and non-identifiability.
 
-\subsection{Same Genotype, Different Phenotypes}
+\subsection{Trajectory Divergence: Same Anchor, Different Attractors}
 
-Figure~\ref{fig:same_genotype} demonstrates that a single genotype produces substantially different phenotypes depending on environmental history.
+Figure~\ref{fig:same_genotype} demonstrates the fundamental prediction of nonergodic development: identical genotypes (anchors) produce different phenotypes when developmental trajectories follow different paths through state space.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{figures/fig1_same_genotype.pdf}
-    \caption{\textbf{Simulated developmental trajectories.} Same genotype, different environments $\to$ different phenotypes. (A) Environmental histories for cooperative (blue) and competitive (red) regimes. (B) Developmental trajectories in state space (PCA projection); green circle marks start, squares mark end states. (C) Final phenotype vectors differ substantially. (D) Emergent repair allocation and cancer mortality: cooperative environments induce higher repair and lower $\mu_S$.}
+    \caption{\textbf{Trajectory divergence under identical anchoring.} (A) Two environmental histories: cooperative (blue) and competitive (red). (B) Developmental trajectories through state space (PCA projection); same starting point (green circle), different endpoints (squares). (C) Different trapped states produce different phenotypes. (D) Different attractor basins yield different repair allocations and cancer mortality---same genotype, different outcomes.}
     \label{fig:same_genotype}
 \end{figure}
 
-The key observation is panel (D): the same genotype produces different cancer mortality rates depending on developmental environment. This is the empirical foundation for Proposition~\ref{prop1}.
+Panel (B) is the key visualization: the two trajectories diverge in state space despite sharing the same anchor constraints. The endpoints represent different attractor basins---trapped states that persist because the system cannot spontaneously explore alternatives. Panel (D) shows the phenotypic consequence: different repair allocations and thus different cancer mortality from identical genotypes.
 
-\subsection{Population-Level Patterns}
+\subsection{Population-Level Non-Identifiability}
 
-Figure~\ref{fig:population} shows that aggregate population patterns can arise from either allele-based or plasticity-based mechanisms.
+Figure~\ref{fig:population} shows that aggregate population patterns cannot distinguish between allele-based and trajectory-based mechanisms.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{figures/fig2_population_patterns.pdf}
-    \caption{Non-identifiability at the population level. (A) Model B (plastic policy): same genetic distribution in different environments produces different $\mu_S$ distributions. (B) Model A (allele-based): different genetic distributions can produce similar patterns. (C) Aggregate statistics (mean $\pm$ SD of $\mu_S$) are indistinguishable between models.}
+    \caption{Non-identifiability at the population level. (A) Trajectory model: same genetic distribution in different environments $\to$ different $\mu_S$ distributions. (B) Allele model: different genetic distributions can produce matching patterns. (C) Aggregate statistics are indistinguishable---this is the $\Delta_D$ projection problem.}
     \label{fig:population}
 \end{figure}
 
 \subsection{Causal Structure}
 
-Figure~\ref{fig:dags} shows the causal graphs for both models. The key difference is that environment is purely a selection context in Model A but a direct developmental input in Model B; this distinction underlies the non-identifiability result. Critically, both causal structures collapse to the same two-node summary (Environment $\to$ $\mu_S$) when projected onto low-dimensional observables---this is precisely where $\Delta_D > 0$ creates ambiguity.
+Figure~\ref{fig:dags} contrasts the causal graphs. In the allele model, the genotype algorithmically determines the phenotype; environment acts only through evolutionary selection. In the trajectory model, the genotype anchors a developmental system that integrates environmental inputs in real time.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{figures/fig5_causal_dags.pdf}
-    \caption{Causal structure of the two models. (A) Model A: genotype directly determines $\mu_S$; environment only modulates selection. (B) Model B: genotype parameterizes a developmental system; environment enters directly into development and policy, producing emergent $\mu_S$.}
+    \caption{Contrasting causal structures. (A) Allele model: $G \to \mu_S$, environment external. (B) Trajectory model: $G$ anchors development, $E$ shapes trajectory, $\mu_S$ emerges from trapped state.}
     \label{fig:dags}
 \end{figure}
 
-\subsection{Information Loss Under Projection}
+\subsection{The Dimensional Gap in Action}
 
-Figure~\ref{fig:projection} illustrates the information loss that results from dimensional projection. Panel C quantifies this: in the full model, environment explains most of the variance in $\mu_S$, but an allele-only regression would misattribute much of this variance to ``genetic effects.''
+Figure~\ref{fig:projection} visualizes the information loss that occurs when projecting from the high-dimensional (genotype $\times$ environment $\times$ trajectory) space to the low-dimensional (genotype $\to$ phenotype) summary.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{figures/fig3_projection_loss.pdf}
-    \caption{Information loss under projection. (A) In full genotype $\times$ environment space, cooperative and competitive regimes are clearly separated. (B) In projected (allele-only) space, environment is hidden. (C) Variance decomposition: environment explains most variance in $\mu_S$, but allele models attribute this to genetic effects.}
+    \caption{Projection destroys trajectory information. (A) Full space: environments clearly separate. (B) Projected space: trajectory information lost. (C) Variance decomposition: environment explains most $\mu_S$ variance, but allele models misattribute this to ``genetic effects''---the dimensional gap in action.}
     \label{fig:projection}
 \end{figure}
 
-\subsection{Twin Worlds Experiment}
+\subsection{Twin Worlds: The Decisive Experiment}
 
-Figure~\ref{fig:twins} provides a decisive demonstration: identical genotype distributions in different worlds produce patterns that naive allele models would interpret as genetic differences. A naive comparative study could infer different ``oncogenic allele frequencies'' between worlds that in fact share identical genotype distributions.
-
-Crucially, an observer calculating the genetic distance between the World 1 and World 2 populations would find a Fixation Index of $F_{ST} \approx 0$, yet would observe significantly different phenotype distributions ($P_{ST} \gg 0$). A standard GWAS trained on this combined data would fail to find significant SNPs, leading to the conclusion of ``missing heritability,'' when in fact the heritability is entirely environmental.
+Figure~\ref{fig:twins} provides the clearest demonstration of nonergodic development. We create two ``worlds'' with \textit{identical} genotype distributions but different environmental regimes. The developmental trajectories in each world converge to different attractor basins, producing dramatically different phenotype distributions.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{figures/fig6_twin_worlds.pdf}
-    \caption{Twin worlds experiment. (A) Same genotype distribution developed in cooperative vs.\ competitive worlds produces dramatically different $\mu_S$ distributions. (B) A naive allele model would infer different ``oncogenic allele frequencies'' despite no genetic difference. (C) Genotype has minimal correlation with $\mu_S$; environment determines the outcome.}
+    \caption{Twin worlds experiment. (A) Identical genomes, different worlds $\to$ different $\mu_S$ distributions. (B) A naive allele analysis would infer ``oncogenic allele'' frequency differences where none exist. (C) Genotype (anchor) shows minimal correlation with $\mu_S$; trajectory determines outcome.}
     \label{fig:twins}
 \end{figure}
 
-\subsection{Divergent Predictions}
+The genetic distance between worlds is $F_{ST} \approx 0$ (by construction), yet phenotypic distance is $P_{ST} \gg 0$. A GWAS would find no significant variants and conclude ``missing heritability''---but the heritability is not missing, it is \textit{trajectory-based}. The anchor constrains which attractors exist; the environment determines which attractor is entered.
 
-Figure~\ref{fig:prediction} shows where the models make different predictions. This makes environmental interventions the critical empirical test for discriminating allele- vs.\ policy-based mechanisms.
+\subsection{Divergent Predictions: The Intervention Test}
+
+Figure~\ref{fig:prediction} shows where the models diverge. The allele model predicts that phenotype is locked by genotype---environmental change cannot alter the trapped state. The trajectory model predicts that environmental change can guide the system toward a new attractor.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{figures/fig4_prediction_divergence.pdf}
-    \caption{Divergent predictions for environmental change. (A) Model A predicts no change in $\mu_S$ when environment shifts; Model B predicts substantial reduction. (B) Individual trajectories show systematic phenotypic change without genetic change.}
+    \caption{The intervention test. (A) Allele model: no change when environment shifts (genotype determines phenotype). Trajectory model: substantial shift (new environment $\to$ new attractor). (B) Individual trajectories converge toward the new attractor---phenotypic change without genetic change.}
     \label{fig:prediction}
 \end{figure}
+
+This is the critical empirical test. If moving organisms from competitive to cooperative environments produces phenotypic shifts toward higher repair allocation, the trajectory model is supported. If phenotypes remain stable, the allele model is supported.
 
 
 \section{Discussion}\label{sec:discussion}
 
+\subsection{Nonergodicity as the Core Insight}
+
+The central contribution of this paper is recognizing that developmental systems are \textit{nonergodic}. The state space is too vast to explore; trajectories are trapped; phenotypes reflect which attractor was entered, not an algorithmic genotype-to-phenotype mapping.
+
+This reframes several longstanding puzzles:
+\begin{itemize}
+    \item \textbf{Missing heritability:} Not missing variants, but missing trajectory information. GWAS project out the environmental history that determines which attractor each individual occupies.
+    \item \textbf{Epigenetic memory:} Not a separate mechanism, but trapped states in nonergodic dynamics. The genome anchors; the trajectory traps.
+    \item \textbf{Genetic assimilation:} How plastic responses become canalized. If an attractor basin is consistently entered across generations, selection can modify the anchor to make that basin deeper or more accessible---converting trajectory-dependence into anchor-dependence.
+\end{itemize}
+
 \subsection{Steelmanning the Allele View}
 
-We emphasize that allele-based models are not wrong. Sierra et al.'s finding that cooperative species have lower cancer prevalence is real and important. Selection does act on heritable variation, and over evolutionary time, lineages in cooperative environments likely do accumulate genetic changes that support higher somatic investment \cite{wagner2011}.
+Allele-based models are not wrong. Sierra et al.'s finding that cooperative species have lower cancer prevalence is real and important \cite{wagner2011}. Over evolutionary time, selection does modify anchors.
 
-Our point is narrower: the aggregate pattern ``cooperative = less cancer'' is equally consistent with:
+Our point is that the aggregate pattern ``cooperative = less cancer'' is equally consistent with:
 \begin{enumerate}
-    \item Selection having already fixed cancer-suppressing alleles in cooperative lineages (Model A).
-    \item Selection having favored plastic developmental policies that respond to cooperative cues (Model B).
-    \item \textbf{Genetic assimilation:} A process where an initially plastic response (Model B) becomes canalized into a fixed genetic trait (Model A) over evolutionary time due to the consistent adaptive value of the phenotype in stable environments.
+    \item \textbf{Anchor modification:} Selection has reshaped the attractor landscape to favor high-repair basins.
+    \item \textbf{Trajectory guidance:} Cooperative environments guide trajectories into high-repair attractor basins that already exist.
+    \item \textbf{Genetic assimilation:} An initially trajectory-dependent response becomes anchor-encoded through sustained selection.
 \end{enumerate}
 
-The models are non-identifiable from cross-species comparative data. Distinguishing them requires environmental manipulation experiments.
+These are non-identifiable from comparative data. Distinguishing them requires intervention experiments.
 
-\subsection{When Allele Stories Work vs.\ Fail}
+\subsection{When Nonergodicity Dominates}
 
 \medskip
 \noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
-\textbf{Taxonomy: When Allele Stories Become Non-Identifiable}
+\textbf{Taxonomy: When Trajectory Matters}
 
 \smallskip
-\textbf{Allele stories work when:}
+\textbf{Anchor-dominated (allele stories work):}
 \begin{itemize}
-    \item Traits are low-dimensional
-    \item Plasticity is weak
-    \item Environments are stable
-    \item $\Delta_D$ is small
+    \item Low-dimensional development ($\Delta_D$ small)
+    \item Few attractor basins
+    \item Stable environments across generations
+    \item Strong canalization
 \end{itemize}
 
-\textbf{Allele stories become non-identifiable when:}
+\textbf{Trajectory-dominated (nonergodicity matters):}
 \begin{itemize}
-    \item $\Delta_D \gg 0$ (high-dimensional development)
-    \item Environments vary across generations
-    \item Phenotype is policy-based rather than algorithm-generated
-    \item Identical genotypes produce divergent phenotypes depending on $E(t)$
-    \item Low-dimensional measurement destroys mechanistic information
+    \item High-dimensional development ($\Delta_D \gg 0$)
+    \item Many attractor basins accessible from same anchor
+    \item Variable environments across generations
+    \item Weak canalization, high plasticity
 \end{itemize}
 }}
 
-Cancer risk in cooperative vs.\ competitive mammals, facial morphology, and human life-history traits sit squarely in the second category.
+\smallskip
+Cancer risk, facial morphology, and human life-history traits sit squarely in the trajectory-dominated regime.
 
 \subsection{Specific Empirical Predictions}
 
@@ -332,85 +368,91 @@ While the models often produce indistinguishable aggregate statistics, they dive
 
 \begin{table}[ht]
     \centering
-    \caption{\textbf{Contrasting Allele-Centric vs.\ Plasticity-Centric Models.} Model A and Model B are indistinguishable from static data but diverge under environmental intervention.}
+    \caption{\textbf{Anchor-based vs.\ Trajectory-based Models.} Indistinguishable from static data; diverge under intervention.}
     \label{tab:model_comparison}
     \renewcommand{\arraystretch}{1.3}
     \small
     \begin{tabular}{@{}p{0.22\textwidth} p{0.36\textwidth} p{0.36\textwidth}@{}}
         \toprule
-        \textbf{Feature} & \textbf{Model A (Allele-Based)} & \textbf{Model B (Plasticity-Based)} \\
+        \textbf{Feature} & \textbf{Anchor Model (Allele-Based)} & \textbf{Trajectory Model (Nonergodic)} \\
         \midrule
         \textbf{Core Mechanism} &
-        Genotype algorithmically determines phenotype (additive effects). &
-        Genotype parameterizes a high-D developmental system; phenotype is emergent. \\
+        Genotype algorithmically determines phenotype. &
+        Genotype anchors high-D system; trajectory determines which attractor. \\
 
         \textbf{Role of Environment} &
-        \textit{Filter:} Modulates selection pressures on alleles over generations. &
-        \textit{Input:} Enters directly into developmental dynamics to shape phenotype in real-time. \\
+        \textit{Selection pressure:} Modulates which anchors are favored over generations. &
+        \textit{Trajectory guidance:} Shapes which attractor basin is entered in real-time. \\
 
-        \textbf{Interpretation of ``Cooperative Safety''} &
-        Selection favored ``low cancer'' alleles in cooperative lineages. &
-        Cooperative cues induce plastic policies allocating more resources to repair. \\
+        \textbf{``Cooperative Safety''} &
+        Selection modified anchors to favor low-cancer attractors. &
+        Cooperative cues guide trajectories into existing low-cancer attractors. \\
 
         \midrule
         \multicolumn{3}{@{}l}{\textit{\textbf{Divergent Predictions (Testable)}}} \\
         \midrule
 
         \textbf{Environmental Shift} &
-        \textbf{No immediate change.} Phenotype is locked by genotype. &
-        \textbf{Immediate shift.} Phenotype adjusts to new environmental cues. \\
+        \textbf{No change.} Trapped state is anchor-determined. &
+        \textbf{Shift occurs.} New trajectory $\to$ new attractor. \\
 
-        \textbf{Twin Worlds Result} &
-        Identical genomes $\to$ identical cancer rates ($F_{ST} \approx P_{ST}$). &
-        Identical genomes $\to$ divergent cancer rates ($F_{ST} \approx 0$, $P_{ST} \gg 0$). \\
+        \textbf{Twin Worlds} &
+        Identical anchors $\to$ identical phenotypes. &
+        Identical anchors $\to$ divergent phenotypes ($F_{ST} \approx 0$, $P_{ST} \gg 0$). \\
 
-        \textbf{GWAS Implication} &
-        ``Missing heritability'' due to many small-effect variants. &
-        ``Missing heritability'' is a projection artifact ($\Delta_D \gg 0$). \\
+        \textbf{GWAS} &
+        ``Missing heritability'' = many small-effect variants. &
+        ``Missing heritability'' = trajectory information projected out. \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-\noindent As shown in Figure~\ref{fig:prediction}, environmental interventions provide the critical test. Model A predicts that moving a ``competitive'' genotype to a cooperative environment will not change its baseline mortality $\mu_S$. Model B predicts a significant reduction in $\mu_S$ as the developmental system integrates the new safety cues.
+\subsection{The Projection Problem}
 
-\subsection{Dimensional Constraints on Interpretation}
-
-The key insight is that genotype-phenotype maps involve multiple projections:
+Genotype-phenotype inference involves a cascade of projections:
 
 \begin{center}
 \begin{tabular}{lcl}
-High-D developmental state & $\xrightarrow{\text{projection}}$ & Low-D observed phenotype \\
-$(g, E, h_T) \in \R^{L+pT+m}$ & & $x \in \R^n$
+(anchor, trajectory, trapped state) & $\xrightarrow{\text{projection}}$ & (genotype, phenotype) \\
+$(g, E_{0:T}, h_T) \in \R^{L+pT+m}$ & & $(g, x) \in \R^{L+n}$
 \end{tabular}
 \end{center}
 
-Allele-based models further project by marginalizing over environment:
+Allele-based models further marginalize over trajectories:
 \begin{equation}
     P(x \mid g) = \int P(x \mid g, E) P(E) \, dE
 \end{equation}
 
-This marginalization loses information about the environment-dependent structure \cite{todd2025falsifiability,todd2025maxwell}. The ``genetic effect'' $\beta$ that emerges is not a property of the allele alone but of the allele-environment interaction averaged over some implicit environmental distribution.
+This marginalization discards the trajectory information that determines which attractor basin was entered \cite{todd2025falsifiability,todd2025maxwell}. The ``genetic effect'' $\beta$ is not a property of the anchor alone but of the anchor-trajectory interaction averaged over some implicit distribution of environmental histories.
 
-Even in our minimal toy model, with $L=5$ genetic dimensions, $m=20$ developmental state dimensions, $n=10$ phenotype dimensions, and $k=1$ measured trait ($\mu_S$), we have $\Delta_D = (20+10)-(5+1) = 24$. In real organisms, $\Delta_D$ will be vastly larger, making non-identifiability correspondingly worse.
+In our minimal model ($L=5$, $m=20$, $n=10$), $\Delta_D = 14$. In real organisms with $m \sim 10^4$ regulatory degrees of freedom, the dimensional gap is enormous---making trajectory-dependence correspondingly important.
 
-\subsection{Theoretical Context: Memory vs.\ Mutation}
+\subsection{Connections to Related Work}
 
-Our results offer a mathematical formalization for the ``cancer memory'' hypothesis recently debated in this journal \cite{lissek2024}. Lissek argued that once initiated by oncogenic changes, malignancy can progress through epigenetic memory mechanisms rather than relying solely on continued mutation accumulation. Our ``Twin Worlds'' experiment (Figure~\ref{fig:twins}) demonstrates the statistical consequences of this insight.
+Our framework provides formal foundations for several recent proposals:
 
-When $\Delta_D \gg 0$, the developmental system acts as a high-capacity memory buffer that integrates environmental inputs \cite{lee2022,letsou2024}. The ``missing heritability'' in cancer studies is thus not missing genetic data, but rather the ``forgotten'' information of environmental history---information that is causally active in the phenotype but mathematically marginalized in the allele model.
+\textbf{Cancer memory} \cite{lissek2024}: Lissek argued that malignancy can progress through epigenetic mechanisms once initiated. In our terms: oncogenic changes perturb the developmental trajectory, pushing the system into a new attractor basin. The nonergodic dynamics \textit{are} the memory---the system cannot spontaneously return to its previous basin.
 
-This connects to broader systems-theoretic perspectives on evolution. Corning \cite{corning2022} argued that evolution is primarily about functional organization rather than individual genes; Fontana \cite{fontana2023} proposed unified developmental models linking ageing and cancer. Our framework provides the formal information-theoretic machinery: the distinction between ``evolved'' (Model A) and ``learned'' (Model B) cancer traits is not merely semantic but represents a fundamental topological gap---the Dimensional Gap $\Delta_D$---in how we map genotype to phenotype.
+\textbf{Developmental plasticity} \cite{lee2022,letsou2024}: High-dimensional developmental systems with large $\Delta_D$ naturally exhibit plasticity---many attractor basins are accessible from a single anchor.
 
-In the tradition of critiques of algorithmic biology \cite{rosen1991}, we demonstrate that the gene-as-algorithm assumption is not merely an approximation but a projection that actively discards the causal structure of the developmental system.
+\textbf{Systems evolution} \cite{corning2022}: Evolution is primarily about functional organization, not individual genes. In our terms: selection modifies anchors, but anchors constrain organizational possibilities without fully determining them.
+
+\textbf{Development-ageing-cancer} \cite{fontana2023}: Unified developmental models linking these processes are natural in a nonergodic framework, where trajectory history shapes multiple downstream outcomes.
+
+In the tradition of critiques of algorithmic biology \cite{rosen1991}, we demonstrate that the gene-as-algorithm assumption is not merely an approximation but a projection that actively discards the trajectory structure of nonergodic development.
 
 
 \section{Conclusion}
 
-The allele-centric view is a special case of a broader, dimensionality-constrained developmental mapping. When $\Delta_D$ is large---when development is high-dimensional and plastic---allele effects become non-identifiable from observational data, and plastic policies dominate phenotype formation.
+Biological development is nonergodic. The state space is too vast to explore; trajectories are trapped; phenotypes are attractor states, not algorithmic outputs.
 
-Cancer prevalence in cooperative vs.\ competitive species is an instance of this general phenomenon. The pattern Sierra et al.\ documented is real; our contribution is to show that it admits multiple mechanistic interpretations that are indistinguishable from aggregate data but make different predictions for intervention.
+The genome is a low-dimensional anchor that constrains which attractor basins exist, but environmental history determines which basin is entered. This anchor-trajectory duality resolves the genotype-phenotype puzzle: the mapping is many-to-one not because of noise or missing variants, but because the trajectory information that distinguishes outcomes is projected out by genotype-phenotype analysis.
 
-Genotype does not algorithmically determine phenotype. Genotype provides parameters to a high-dimensional developmental system that integrates environmental information to produce phenotypic outcomes. Recognizing this is essential for prediction, intervention, and understanding rapid phenotypic change.
+Sierra et al.'s finding that cooperative species have lower cancer prevalence is real. Our contribution is to show that it admits both anchor-based (selection modified the genotype) and trajectory-based (environment guided development) interpretations---non-identifiable from comparative data, distinguishable only through intervention.
+
+The ``missing heritability'' in GWAS is not missing variants. It is missing trajectories. The dimensional gap $\Delta_D$ quantifies how much information is lost when we project from the high-dimensional (anchor, trajectory, attractor) space to the low-dimensional (genotype, phenotype) summary.
+
+Genotype does not algorithmically determine phenotype. Genotype anchors a nonergodic developmental system; environmental history traps it in an attractor; the phenotype is the trapped state. Recognizing this is essential for prediction, intervention, and understanding biological change.
 
 
 \section*{Data and Code Availability}
