@@ -112,18 +112,19 @@ Figures 7-8 extend the model to evolutionary time, showing that the same develop
 
 ## The Model
 
-The developmental network is a recurrent neural network treated as a gene regulatory network:
+The developmental network is a continuous-time recurrent neural network treated as a gene regulatory network:
 
 ```
-h_{t+1} = tanh(W_h · h_t + W_e · e_t + W_g · g)
+dh/dt = -h + tanh(W_h · h + W_e · e_t + W_g · g)
 ```
 
 Where:
 - `g ∈ R^L` is the genotype (L=5, the low-dimensional *anchor*)
 - `e_t ∈ R^p` is environmental input at time t (p=3)
 - `h_t ∈ R^m` is developmental state (m=20, high-dimensional, *nonergodic*)
+- The `-h` term creates intrinsic decay, ensuring relaxation toward attractors
 
-The phenotype is a linear readout: `x = W_out · h_T`
+Discretized with Euler's method (dt=0.1). The phenotype is: `x = tanh(W_out · h_T)` (bounded to [-1, 1]).
 
 Cancer mortality emerges via: `μ_S = μ_0(1 - α · c)` where `c` is developmental coherence—how coordinated the trajectory was. Cancer is attractor bifurcation: cells diverging from the organismal trajectory.
 

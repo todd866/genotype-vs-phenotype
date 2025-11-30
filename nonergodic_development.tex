@@ -59,7 +59,7 @@ We formalize this via the \textbf{Dimensional Gap} ($\Delta_D$), which quantifie
 
 \subsection*{Application: Cooperative Lifestyles and Cancer}
 
-We apply this framework to a recent finding in cancer evolution. Sierra et al.\ (2025) demonstrated that cooperative mammalian species exhibit lower cancer prevalence than competitive species, and modeled this as selection on ``oncogenic variants'' \cite{sierra2025}. Their allele-based interpretation is compelling---but our framework shows it is not uniquely supported by the data.
+We apply this framework to a recent finding in cancer evolution. Sierra et al.\ (2025) demonstrated that cooperative mammalian species exhibit lower cancer prevalence than competitive species, and modeled this as selection on ``oncogenic variants'' that function as a mechanism of programmed obsolescence---the ``Hydra effect''---in competitive populations \cite{sierra2025}. Their allele-based interpretation is compelling---but our framework shows it is not uniquely supported by the data.
 
 The same pattern admits a trajectory-based interpretation:
 \begin{itemize}
@@ -160,9 +160,9 @@ This provides the information-theoretic foundation for Lissek's \cite{lissek2024
 
 \subsection{Application Context: Cancer as a Failure of Developmental Buffering}
 
-Sierra et al.\ (2025) found that cooperative mammalian species have lower cancer prevalence than competitive species \cite{sierra2025}. Their model explains this via allele frequency differences: selection favors cancer-suppressing alleles in cooperative lineages where older individuals contribute as helpers.
+Sierra et al.\ (2025) found that cooperative mammalian species have lower cancer prevalence than competitive species \cite{sierra2025}. Their comparative analysis shows that eusocial and cooperative breeders---mole-rats, some primates, and several cetaceans---combine division of reproductive labor with unusually low cancer mortality, suggesting repeated co-evolution of cooperative life histories and cancer resistance. Importantly, Sierra et al.\ themselves emphasize that cancer evolution should be treated as a \textit{multilevel selection} process and connect their findings to life-history plasticity. Their stage-structured model explains the pattern via an ``oncogenic variant'' that raises late-life cancer mortality ($\mu_S$): in competitive contexts this variant can increase fitness via the ``Hydra effect'' (freeing resources for offspring), while in cooperative contexts it is selected against.
 
-Our framework suggests a complementary, trajectory-based mechanism rooted in life history theory \cite{stearns1992,roff2002}. Developmental fidelity is metabolically expensive. In competitive, high-volatility environments (``fast'' life histories), organisms must prioritize rapid growth and early reproduction over somatic maintenance, leading to noisier developmental trajectories and higher mutation accumulation \cite{aktipis2015}.
+Our framework suggests a complementary, trajectory-based mechanism rooted in life history theory \cite{stearns1992,roff2002}. In Sierra et al.'s model, cooperation ($\alpha$) and competition ($\omega$) change population structure by altering juvenile survival. In ours, the same social conditions are modeled as changes in developmental coherence $c$: cooperative environments stabilize trajectories (high $c$, low emergent $\mu_S$), competitive environments destabilize them (low $c$, high emergent $\mu_S$). The key difference is explanatory level: we are not challenging their ecology, but moving one level down to the developmental substrate of $\mu_S$. Developmental fidelity is metabolically expensive. In competitive, high-volatility environments (``fast'' life histories), organisms must prioritize rapid growth and early reproduction over somatic maintenance, leading to noisier developmental trajectories and higher mutation accumulation \cite{aktipis2015}.
 
 Independent comparative evidence supports this link between life-history tempo and cancer vulnerability. In mammals, Boddy et al.\ \cite{boddy2020} found that litter size---a marker of fast life history---predicts cancer prevalence, while body size and lifespan do not (consistent with Peto's paradox). A parallel analysis in birds found that clutch size, but not body mass or lifespan, predicts neoplasia \cite{vincze2024}. These patterns point to a reproduction--somatic maintenance trade-off that operates independently of the allele-frequency story. At the within-species level, the social buffering literature shows that supportive relationships dampen HPA-axis reactivity across the lifespan \cite{hostinar2014}, while adverse early environments are associated with chronic inflammation and elevated cancer risk \cite{berens2017}. Crucially, the same neuroendocrine axis links to social behavior: the ``dual-hormone hypothesis'' shows that testosterone promotes competitive, status-seeking behavior specifically when cortisol is low \cite{mehta2010}---the HPA axis modulates both developmental coordination and social strategy. In our language: buffered inputs reduce stochastic kicks that push cellular trajectories across bifurcation thresholds, and the physiological signature of ``not defecting'' (low HPA reactivity) is shared across scales.
 
@@ -170,7 +170,7 @@ Cooperative lifestyles fundamentally alter this energetic landscape by \textbf{b
 
 In our dynamical framework, the cooperative environment acts as a \textbf{boundary condition} that restricts the trajectory to the center of the attractor basin, preventing the stochastic excursions (bifurcations) that initiate carcinogenesis. Species that consistently experience cooperative environments effectively ``outsource'' their stability to the group, allowing their internal developmental dynamics to remain coherent without requiring distinct cancer-suppressing alleles for every possible threat. The lower-cancer phenotype is thus an emergent property of the buffered trajectory, not just the genome.
 
-More generally, any species experiencing variable environments across generations would be expected to evolve genomes that anchor multiple attractor basins---allowing environment-dependent phenotype determination rather than fixed strategies. Singh and Glowacki \cite{singh2022} documented such environmental variability in human evolutionary history, but the principle applies broadly: when environments vary, selection favors trajectory-responsive developmental systems over rigidly canalized ones.
+More generally, any species experiencing variable environments across generations would be expected to evolve genomes that anchor multiple attractor basins---allowing environment-dependent phenotype determination rather than fixed strategies. Singh and Glowacki \cite{singh2022} documented such environmental variability in human evolutionary history, but the principle applies broadly: when environments vary, selection favors trajectory-responsive developmental systems over rigidly canalized ones. In such lineages the effective developmental dimensionality $m_{\text{eff}}$ is large relative to $L + k$, so $\Delta_D \gg 0$ and trajectory non-identifiability is unavoidable.
 
 
 \section{Model}\label{sec:model}
@@ -181,11 +181,11 @@ We construct a minimal developmental network that instantiates the theoretical f
 
 Let $g \in \R^L$ be the genotype (the \textit{anchor}, with $L$ small), $e_t \in \R^p$ be the environmental input at time $t$, and $h_t \in \R^m$ be the developmental state (with $m \gg L$).
 
-The developmental dynamics follow a recurrent network:
+The developmental dynamics follow a continuous-time recurrent network:
 \begin{equation}\label{eq:dynamics}
-    h_{t+1} = \sigma\left( W_h h_t + W_e e_t + W_g g \right)
+    \frac{dh}{dt} = -h + \sigma\left( W_h h + W_e e_t + W_g g \right)
 \end{equation}
-where $W_h, W_e, W_g$ are weight matrices and $\sigma = \tanh$ provides nonlinearity.
+where $W_h, W_e, W_g$ are weight matrices and $\sigma = \tanh$ provides nonlinearity. The $-h$ term creates intrinsic decay, ensuring the system relaxes toward attractors rather than exploding. In simulations, we discretize using Euler's method with step size $dt = 0.1$.
 
 The key features of this model:
 \begin{itemize}
@@ -199,8 +199,9 @@ The key features of this model:
 
 The phenotype $x \in \R^n$ is a readout of the final developmental state:
 \begin{equation}
-    x = W_{out} h_T
+    x = \sigma(W_{out} h_T)
 \end{equation}
+where $\sigma = \tanh$ ensures phenotypic values are bounded to $[-1, 1]$.
 
 This final state $h_T$ is a \textit{trapped state}---the endpoint of a nonergodic trajectory. The same genotype $g$ can produce different $h_T$ (and thus different $x$) depending on which trajectory was followed.
 
@@ -229,7 +230,7 @@ We define two environmental regimes that guide trajectories into different attra
 We hypothesize that coherence is not merely a phenotypic outcome---it may be self-reinforcing. If high-coherence organisms create stable group environments, and stable environments enable coordinated development (as the stress literature suggests; Section~\ref{sec:model}.2), then coordinated development would produce high-coherence offspring. This feedback loop would function as an attractor at the social scale, mirroring the attractor dynamics at the cellular scale. To test whether such a feedback loop, \textit{if it exists}, would be evolutionarily stable, we extended the model to a multilevel simulation. We simulate $N=30$ groups of organisms evolving over 60 generations:
 \begin{itemize}
     \item \textbf{Group selection:} Groups compete based on their aggregate coherence. More cooperative groups create more stable developmental environments for their members. Groups reproduce via multinomial sampling weighted by group fitness.
-    \item \textbf{Individual selection:} Within groups, organisms compete based on a fitness function that includes synergistic benefits from cooperation: $w_i = 1 + \beta \cdot C_g \cdot c_i - k \cdot \mu_i$, where $C_g$ is the group's mean coherence and $c_i$ is the individual's coherence.
+    \item \textbf{Individual selection:} Within groups, organisms compete based on a fitness function that includes synergistic benefits from cooperation: $w_i = 1 + \beta \cdot C_g \cdot c_i - k \cdot \mu_i$, where $C_g$ is the group's mean coherence, $c_i$ is the individual's coherence, and we use $\beta = 3.0$, $k = 8.0$ in simulations.
     \item \textbf{Price equation decomposition:} Following the standard multilevel Price decomposition \cite{price1970,frank1997,okasha2006}, the change in mean coherence $\bar{c}$ can be written as:
     \begin{equation}\label{eq:price}
         \Delta \bar{c} = \underbrace{\frac{1}{\bar{W}} \text{Cov}_g(W_g, \bar{c}_g)}_{S_{\text{between}}} + \underbrace{\frac{1}{\bar{W}} \mathbb{E}_g\left[\text{Cov}_i(w_{ig}, c_{ig} \mid g)\right]}_{S_{\text{within}}}
@@ -382,11 +383,11 @@ Figure~\ref{fig:regimes} shows how different selection regimes affect the outcom
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/fig8_regime_comparison.pdf}
-    \caption{\textbf{Selection Regime Comparison.} (A) Cooperation evolves under all regimes, but strong group selection (green) maintains the highest coherence. (B) Cancer mortality is lowest under strong group selection---confirming that group-level stability recruits the developmental coherence that suppresses cellular bifurcation.}
+    \caption{\textbf{Selection Regime Comparison.} (A) Cooperation evolves under all regimes, but strong group selection (green) maintains the highest coherence. (B) Cancer mortality is lowest under strong group selection---confirming that group-level stability recruits the developmental coherence that suppresses cellular bifurcation. Parameters: $N=25$ groups, 70 generations.}
     \label{fig:regimes}
 \end{figure}
 
-This provides a mechanistic evolutionary basis for the correlation observed by Sierra et al.\ (2025): cooperative species have lower cancer not (only) because selection modified their genomes, but because cooperative environments \textit{are} the selection pressure that maintains high-coherence developmental attractors. The allele story and the trajectory story are two views of the same underlying process.
+This provides a concrete instance of the multilevel selection perspective that Sierra et al.\ themselves advocate: the same high-coherence developmental architecture that stabilizes groups also suppresses within-organism cheater dynamics (cancer). Cooperative species have lower cancer not (only) because selection modified their genomes, but because cooperative environments \textit{are} the selection pressure that maintains high-coherence developmental attractors. The allele story and the trajectory story are two views of the same underlying process---but the trajectory story is more parsimonious, requiring no assumption that cancer mortality was ever positively selected.
 
 \section{Discussion}\label{sec:discussion}
 
@@ -418,6 +419,8 @@ Our point is that the aggregate pattern ``cooperative = less cancer'' is equally
 \end{enumerate}
 
 These are non-identifiable from comparative data. Distinguishing them requires intervention experiments. However, our evolutionary simulation (Figures~\ref{fig:price}--\ref{fig:regimes}; see Section 3.4 for model details) demonstrates that the trajectory-based mechanism is evolutionarily robust: selection for group stability naturally recruits developmental coherence, creating the very correlation between cooperation and cancer suppression that allele models seek to explain. Our result should therefore be read as a \textit{completion} of Sierra et al.'s model rather than a refutation: allele-level and trajectory-level accounts are two projections of a single underlying high-dimensional developmental system.
+
+The key difference lies in causal framing. Sierra et al.\ propose that high cancer rates in competitive species are an \textit{adaptation}---a ``phenoptotic'' program to accelerate generational turnover (the Hydra effect), where early death of adults frees resources for offspring, yielding net fitness gains under competition. Our framework offers a more parsimonious explanation: high cancer rates are simply the \textit{entropic consequence} of developing in a high-volatility environment without social buffering. Both frameworks predict the same comparative pattern. But the Hydra effect requires cancer to have been positively selected as a population-level strategy; our account requires only that cooperative environments enable slower, more coordinated development---cancer suppression emerges as a byproduct, not an adaptation. The distinction matters for intervention: if Sierra et al.\ are right, competitive species have been ``designed'' for high cancer; if we are right, reducing environmental stress should reduce cancer even in lineages with no evolutionary history of cooperation.
 
 \subsection{When Nonergodicity Dominates}
 

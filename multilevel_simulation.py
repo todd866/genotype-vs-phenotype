@@ -38,7 +38,8 @@ plt.rcParams.update({
 class DevelopmentalNetwork:
     """
     Minimal developmental network - the "physics" of the system.
-    Implements Equation 2: h_{t+1} = tanh(W_h·h_t + W_e·e_t + W_g·g)
+    Implements Equation 1: dh/dt = -h + tanh(W_h·h + W_e·e_t + W_g·g)
+    Discretized with Euler's method (dt=0.1).
 
     Parameters match nonergodic_development.py exactly.
     """
