@@ -125,7 +125,7 @@ Cancer mortality emerges via: `μ_S = μ_0(1 - α · c)` where `c` is developmen
 
 **Proposition 1 (Non-identifiability):** For any allele-based mortality pattern {μ, μ+δ}, there exists an environment pair that produces identical patterns via trajectory-based mechanisms. The models are distinguishable only through intervention experiments.
 
-**The core insight:** Missing heritability in GWAS is not missing variants—it is missing trajectory information. The dimensional gap Δ_D quantifies how much information is lost when we project from (anchor, trajectory, attractor) to (genotype, phenotype).
+**The core insight:** Some of the "missing heritability" in GWAS may be missing trajectory information, not missing variants. The dimensional gap Δ_D quantifies how much information is lost when we project from (anchor, trajectory, attractor) to (genotype, phenotype).
 
 ---
 
