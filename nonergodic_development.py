@@ -762,12 +762,13 @@ if __name__ == '__main__':
     print("Generating figures for Nonergodic Development paper...")
     print("=" * 50)
 
+    # Generate in manuscript order
     figure1_same_genotype_different_phenotype()
     figure2_population_level_patterns()
-    figure4_projection_loss()
-    figure6_intervention_test()
     figure3_causal_dags()
+    figure4_projection_loss()
     figure5_twin_worlds()
+    figure6_intervention_test()
 
     print("=" * 50)
     print("All figures generated in figures/ directory")
