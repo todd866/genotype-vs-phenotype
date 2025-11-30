@@ -53,7 +53,7 @@ Biological development unfolds in a high-dimensional state space. Gene regulator
 
 This nonergodicity is not a limitation to be overcome but a feature that enables stable phenotypes. The genome acts as a low-dimensional \textit{anchor} that constrains which regions of state space are reachable, while environmental history determines which specific attractor the system occupies within those constraints. The phenotype is not algorithmically determined by the genotype; it is the trapped state of a nonergodic system whose trajectory was shaped by both genetic and environmental inputs.
 
-This framework resolves a persistent puzzle in genetics: why do genome-wide association studies fail to account for the majority of heritable variation in complex traits \cite{manolio2009,zuk2012}? The ``missing heritability'' is not missing genetic variants but rather the missing environmental history---the trajectory information that determined which attractor basin each individual occupies. Additive genetic models project a high-dimensional, trajectory-dependent reality onto a low-dimensional genotype space, discarding precisely the information that distinguishes individuals with identical genotypes.
+This framework offers one perspective on a persistent puzzle in genetics: why do genome-wide association studies fail to account for the majority of heritable variation in complex traits \cite{manolio2009,zuk2012}? Many explanations have been proposed---rare variants, epistasis, gene-environment interactions. We add another: trajectory information. From a nonergodic developmental perspective, ``missing heritability'' includes the environmental history that determined which attractor basin each individual occupies. Additive genetic models project a high-dimensional, trajectory-dependent reality onto a low-dimensional genotype space, discarding precisely the information that distinguishes individuals with identical genotypes.
 
 We formalize this via the \textbf{Dimensional Gap} ($\Delta_D$), which quantifies the mismatch between genetic parameters and developmental degrees of freedom. When $\Delta_D \gg 0$, the mapping from genotype to phenotype is many-to-one: the same genotype can produce different phenotypes depending on which trajectory the system followed. This creates a fundamental \textit{non-identifiability} between allele-based and trajectory-based explanations for phenotypic patterns.
 
@@ -326,7 +326,7 @@ The central contribution of this paper is recognizing that developmental systems
 
 This reframes several longstanding puzzles:
 \begin{itemize}
-    \item \textbf{Missing heritability:} Not missing variants, but missing trajectory information. GWAS project out the environmental history that determines which attractor each individual occupies.
+    \item \textbf{Missing heritability:} May include missing trajectory information, not only missing variants. GWAS project out the environmental history that determines which attractor each individual occupies.
     \item \textbf{Epigenetic memory:} Not a separate mechanism, but trapped states in nonergodic dynamics. The genome anchors; the trajectory traps.
     \item \textbf{Genetic assimilation:} How plastic responses become canalized. If an attractor basin is consistently entered across generations, selection can modify the anchor to make that basin deeper or more accessible---converting trajectory-dependence into anchor-dependence.
 \end{itemize}
@@ -457,11 +457,11 @@ In the tradition of critiques of algorithmic biology \cite{rosen1991}, we demons
 
 Biological development is nonergodic. The state space is too vast to explore; trajectories are trapped; phenotypes are attractor states, not algorithmic outputs.
 
-The genome is a low-dimensional anchor that constrains which attractor basins exist, but environmental history determines which basin is entered. This anchor-trajectory duality resolves the genotype-phenotype puzzle: the mapping is many-to-one not because of noise or missing variants, but because the trajectory information that distinguishes outcomes is projected out by genotype-phenotype analysis.
+The genome is a low-dimensional anchor that constrains which attractor basins exist, but environmental history determines which basin is entered. This anchor-trajectory duality offers one lens on the genotype-phenotype relationship: the mapping is many-to-one not only because of noise or missing variants, but also because trajectory information that distinguishes outcomes is projected out by genotype-phenotype analysis.
 
 Sierra et al.'s finding that cooperative species have lower cancer prevalence is real. Our contribution is to show that it admits both anchor-based (selection modified the genotype) and trajectory-based (environment guided development) interpretations---non-identifiable from comparative data, distinguishable only through intervention.
 
-The ``missing heritability'' in GWAS is not missing variants. It is missing trajectories. The dimensional gap $\Delta_D$ quantifies how much information is lost when we project from the high-dimensional (anchor, trajectory, attractor) space to the low-dimensional (genotype, phenotype) summary.
+Some of the ``missing heritability'' in GWAS may be missing trajectories, not missing variants. The dimensional gap $\Delta_D$ quantifies how much information is lost when we project from the high-dimensional (anchor, trajectory, attractor) space to the low-dimensional (genotype, phenotype) summary.
 
 Genotype does not algorithmically determine phenotype. Genotype anchors a nonergodic developmental system; environmental history traps it in an attractor; the phenotype is the trapped state. Recognizing this is essential for prediction, intervention, and understanding biological change.
 
