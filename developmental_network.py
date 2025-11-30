@@ -723,9 +723,10 @@ def figure6_twin_worlds():
     ax2.set_title('(B) Naive allele model inference')
     ax2.set_ylim(0, 1)
 
-    # Add annotation
-    ax2.annotate('No genetic\ndifference!', xy=(0.5, 0.5), fontsize=11,
-                ha='center', color='red', fontweight='bold')
+    # Add annotation above the bars
+    ax2.text(0.5, 1.05, 'No genetic difference!', fontsize=11,
+             ha='center', va='bottom', color='red', fontweight='bold',
+             transform=ax2.transAxes)
 
     # Panel C: Scatter showing no genetic correlation with μ_S
     ax3 = axes[2]
