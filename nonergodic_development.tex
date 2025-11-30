@@ -127,7 +127,7 @@ Together, genetic and epigenetic anchors define the ``landscape'' of possible de
 
 Crucially, the epigenome is not independent of the trajectory---it is \textit{shaped by} it. The high-dimensional developmental dynamics determine which epigenetic modifications occur; these modifications then feed back to constrain future trajectories. This creates a hierarchy: genome → developmental dynamics → epigenome → stabilized attractor. Epigenetic marks are the molecular record of where the trajectory has been, not an independent source of phenotypic variation.
 
-This is precisely Waddington's \cite{waddington1957} epigenetic landscape, reframed in dynamical systems terms: the genome shapes the hills and valleys; the developmental trajectory is a ball rolling down one particular path. Different environmental perturbations can push the ball into different valleys---but not into valleys that the landscape doesn't contain.
+This is precisely Waddington's \cite{waddington1957} epigenetic landscape, reframed in dynamical systems terms: the genome shapes the hills and valleys; the developmental trajectory is a ball rolling down one particular path. Different environmental perturbations can push the ball into different valleys---but not into valleys that the landscape doesn't contain. As Noble \cite{noble2012} argues, there is no privileged level of causation in biological systems; the genome anchors the dynamics, but environmental boundary conditions constrain them just as fundamentally.
 
 \subsection{The Dimensional Gap}
 
@@ -444,6 +444,14 @@ This marginalization discards the trajectory information that determines which a
 
 In our minimal model ($L=5$, $m=20$, $n=10$), $\Delta_D = 14$. In real organisms with $m \sim 10^4$ regulatory degrees of freedom, the dimensional gap is enormous---making trajectory-dependence correspondingly important.
 
+\subsection{Beyond Nature versus Nurture}
+
+One might object that we are simply rebranding the ``nurture'' side of the nature-nurture debate. We are not. The traditional framing assumes that genetic and environmental contributions are separable and additive: $P = G + E + G \times E$. Variance can be partitioned; heritability can be estimated; the question is merely ``how much of each?''
+
+Our framework rejects this separability. In a nonergodic high-dimensional system, the phenotype is not a sum of genetic and environmental contributions---it is the attractor basin that a trajectory happened to enter. The trajectory is shaped by both anchor and environment simultaneously; there is no meaningful sense in which their contributions can be decomposed. Asking ``how much is genes versus environment?'' is like asking how much of a river's path is due to gravity versus the shape of the landscape. The question is malformed.
+
+This is why $\Delta_D$ matters: it quantifies when the additive decomposition breaks down. When $\Delta_D$ is small, the anchor dominates and variance partitioning works. When $\Delta_D$ is large, the trajectory carries information that neither anchor nor simple environmental measures capture. The ``missing heritability'' is not missing nature or missing nurture---it is the signature of a high-dimensional system whose behavior cannot be projected onto low-dimensional summaries without information loss.
+
 \subsection{Connections to Related Work}
 
 Our framework provides formal foundations for several recent proposals:
@@ -517,6 +525,9 @@ Zuk, O., Hechter, E., Sunyaev, S.R., \& Lander, E.S. (2012). The mystery of miss
 
 \bibitem{waddington1957}
 Waddington, C.H. (1957). \emph{The Strategy of the Genes}. Allen \& Unwin, London.
+
+\bibitem{noble2012}
+Noble, D. (2012). A theory of biological relativity: no privileged level of causation. \emph{Interface Focus}, 2(1), 55--64. \url{https://doi.org/10.1098/rsfs.2011.0067}
 
 \bibitem{kauffman1993}
 Kauffman, S.A. (1993). \emph{The Origins of Order: Self-Organization and Selection in Evolution}. Oxford University Press.
