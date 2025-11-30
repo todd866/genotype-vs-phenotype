@@ -61,7 +61,7 @@ This generates all 8 figures in the `figures/` directory.
 
 This paper was developed using an AI-assisted workflow. In the spirit of open science, here's exactly how it worked:
 
-### Primary Drafting: Claude Code (Opus 4.5)
+### Primary Drafting: Claude Code (Claude Opus 4.5)
 
 The paper was developed interactively using [Claude Code](https://claude.com/claude-code), Anthropic's CLI tool. The workflow was:
 
@@ -78,7 +78,7 @@ The paper was developed interactively using [Claude Code](https://claude.com/cla
 
 5. **Citation integration:** References to Waddington, Kauffman, Lissek, Rosen, etc. to ground the argument
 
-### Feedback Loop: Gemini 2.5 Pro + GPT o3
+### Feedback Loop: Gemini 3 Pro + GPT 5.1 Pro
 
 After drafting, I fed the paper to Gemini and GPT for critical feedback. This revealed:
 
@@ -95,9 +95,9 @@ At submission, I asked each model to count revision cycles from their conversati
 
 | Model | Counted | What they tracked |
 |-------|---------|-------------------|
-| GPT o3 | ~17 cycles (40 turns) | Full PDF/TEX/code bundle updates |
-| Gemini 2.5 Pro | ~38 rounds | Substantive prompt-response pairs |
-| Claude Code | ??? | Didn't count, just vibed |
+| GPT 5.1 Pro | ~17 cycles (40 turns) | Full PDF/TEX/code bundle updates |
+| Gemini 3 Pro | ~38 rounds | Substantive prompt-response pairs |
+| Claude Opus 4.5 | ??? | Didn't count, just vibed |
 
 The combined GPT + Gemini conversation log is **169 pages** spanning from "what is this Sierra paper?" to final submission review. Add in the Claude Code sessions (not logged) and the paper went through **100+ total interactions** across all three systems before submission.
 
