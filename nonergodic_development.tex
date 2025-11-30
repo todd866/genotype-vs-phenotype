@@ -69,7 +69,7 @@ The same pattern admits a trajectory-based interpretation:
 
 These interpretations are \textit{non-identifiable} from cross-species comparative data. They diverge only in predictions for intervention: the allele model predicts that changing an organism's environment will not change its cancer risk; the trajectory model predicts substantial phenotypic shifts.
 
-This connects to Lissek's \cite{lissek2024} proposal of ``cancer memory''---epigenetic mechanisms that maintain malignant phenotypes once initiated. Our framework provides the information-theoretic foundation: the developmental system's nonergodicity \textit{is} the memory. Environmental perturbations shift the system to new attractor basins that the genome-as-anchor helps maintain.
+This connects to Lissek's \cite{lissek2024} proposal of ``cancer memory''---epigenetic mechanisms that maintain malignant phenotypes once initiated. Our framework situates epigenetics within a larger dynamical picture: the high-dimensional developmental system determines \textit{which} epigenetic marks get laid down; epigenetic mechanisms then stabilize the resulting attractor. Epigenetics is not a competing explanation but the molecular implementation of nonergodic trapping. The trajectory through developmental state space creates the epigenetic pattern; the pattern then helps maintain the trapped state.
 
 In this paper, we:
 \begin{enumerate}
@@ -120,6 +120,8 @@ An \textbf{anchor} is a low-dimensional structure that constrains which regions 
 \end{definition}
 
 Together, genetic and epigenetic anchors define the ``landscape'' of possible developmental trajectories. They do not specify which attractor basin the system will occupy---that depends on the trajectory, which depends on environmental history. But the anchors constrain \textit{which basins exist} and \textit{which are reachable} from a given starting point.
+
+Crucially, the epigenome is not independent of the trajectory---it is \textit{shaped by} it. The high-dimensional developmental dynamics determine which epigenetic modifications occur; these modifications then feed back to constrain future trajectories. This creates a hierarchy: genome → developmental dynamics → epigenome → stabilized attractor. Epigenetic marks are the molecular record of where the trajectory has been, not an independent source of phenotypic variation.
 
 This is precisely Waddington's \cite{waddington1957} epigenetic landscape, reframed in dynamical systems terms: the genome shapes the hills and valleys; the developmental trajectory is a ball rolling down one particular path. Different environmental perturbations can push the ball into different valleys---but not into valleys that the landscape doesn't contain.
 
