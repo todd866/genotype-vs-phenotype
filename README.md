@@ -30,11 +30,11 @@ The assumption that genotype algorithmically determines phenotype underlies much
 ## Running the Code
 
 ```bash
-pip install numpy matplotlib scipy
+pip install numpy matplotlib scipy scikit-learn
 python developmental_network.py
 ```
 
-This generates all 6 figures in the `figures/` directory.
+This generates all 6 figures in the `figures/` directory and exactly reproduces the plots in the paper.
 
 ---
 

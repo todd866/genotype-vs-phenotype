@@ -51,7 +51,7 @@ The assumption that genotype algorithmically determines phenotype underlies much
 
 A common implicit assumption in evolutionary biology is that genotype determines phenotype in an approximately algorithmic sense: genetic variants have ``effects'' on traits, and phenotypic evolution proceeds via changes in allele frequency. This framing underlies genome-wide association studies, quantitative genetics, and many theoretical models of trait evolution. Yet GWAS have famously failed to account for the majority of heritable variation in complex traits---the ``missing heritability'' problem \cite{manolio2009,zuk2012}---suggesting that simple additive models omit something fundamental about how genotypes produce phenotypes.
 
-Recent work has extended this framework to cancer evolution. Sierra et al.\ (2025) demonstrated that cooperative mammalian species exhibit lower cancer prevalence than competitive, fast life-history species, and modeled this as selection on an ``oncogenic variant'' that increases late-life mortality \cite{sierra2025}. Their finding that cooperative environments select against cancer-promoting alleles while competitive environments can favor them (via a demographic Hydra effect) is compelling.
+Recent work has extended allele-centric modeling to cancer evolution. Sierra et al.\ (2025) demonstrated that cooperative mammalian species exhibit lower cancer prevalence than competitive, fast life-history species, and modeled this as selection on an ``oncogenic variant'' that increases late-life mortality \cite{sierra2025}. Their finding that cooperative environments select against cancer-promoting alleles while competitive environments can favor them (via a demographic Hydra effect) is compelling.
 
 However, we argue that such allele-centric models are incomplete in a specific, quantifiable way. As Pigliucci \cite{pigliucci2010} emphasized, the ``genes as blueprint'' metaphor is ``not only woefully inadequate but positively misleading.'' The genotype does not algorithmically encode the phenotype; rather, genotype provides low-dimensional parameters to a high-dimensional developmental system that integrates environmental information over time \cite{alberch1991,westeberhard2003}. The phenotype---including cancer-relevant traits like somatic repair allocation---emerges from this process.
 
@@ -170,7 +170,7 @@ We define two environmental regimes:
     \item \textbf{Competitive:} High variance in resources, low social support, high conflict.
 \end{itemize}
 
-\noindent\textbf{Parameter values:} Throughout, we use $L = 5$ (genotype dimension), $m = 20$ (developmental state dimension), $n = 10$ (phenotype dimension), and $p = 3$ (environmental input dimension). Cancer mortality parameters are $\mu_0 = 0.1$ (baseline) and $\alpha = 0.8$ (repair efficacy). The cooperative environment draws from $\mathcal{N}(0.5, 0.1)$ while the competitive environment draws from $\mathcal{N}(-0.5, 0.3)$.
+\noindent\textbf{Parameter values:} Throughout, we use $L = 5$ (genotype dimension), $m = 20$ (developmental state dimension), $n = 10$ (phenotype dimension), and $p = 3$ (environmental input dimension). Cancer mortality parameters are $\mu_0 = 0.1$ (baseline) and $\alpha = 0.8$ (repair efficacy). In simulations, cooperative environments are implemented as low-variance, slowly varying resource and support signals, whereas competitive environments are higher-variance and more volatile (see code for exact form).
 
 \subsection{Causal Structure}
 
@@ -399,7 +399,7 @@ When $\Delta_D \gg 0$, the developmental system acts as a high-capacity memory b
 
 This connects to broader systems-theoretic perspectives on evolution. Corning \cite{corning2022} argued that evolution is primarily about functional organization rather than individual genes; Fontana \cite{fontana2023} proposed unified developmental models linking ageing and cancer. Our framework provides the formal information-theoretic machinery: the distinction between ``evolved'' (Model A) and ``learned'' (Model B) cancer traits is not merely semantic but represents a fundamental topological gap---the Dimensional Gap $\Delta_D$---in how we map genotype to phenotype.
 
-In the tradition of Rosen's critique of algorithmic biology, we demonstrate that the gene-as-algorithm assumption is not merely an approximation but a projection that actively discards the causal structure of the developmental system.
+In the tradition of critiques of algorithmic biology \cite{rosen1991}, we demonstrate that the gene-as-algorithm assumption is not merely an approximation but a projection that actively discards the causal structure of the developmental system.
 
 
 \section{Conclusion}
@@ -413,7 +413,7 @@ Genotype does not algorithmically determine phenotype. Genotype provides paramet
 
 \section*{Data and Code Availability}
 
-Simulation code is available at \url{https://github.com/todd866/genotype-vs-phenotype}. The repository includes \texttt{developmental\_network.py}, which implements the model (Equations 1--3), generates all figures, and demonstrates the Twin Worlds experiment (Figure~\ref{fig:twins}).
+Simulation code is available at \url{https://github.com/todd866/genotype-vs-phenotype}. The repository includes \texttt{developmental\_network.py}, which implements the developmental network (Equations 2--3, 5--7), generates all figures, and demonstrates the Twin Worlds experiment (Figure~\ref{fig:twins}).
 
 \section*{Declaration of competing interest}
 The author declares that there are no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
@@ -490,6 +490,9 @@ Corning, P.A. (2022). A systems theory of biological evolution. \emph{BioSystems
 
 \bibitem{fontana2023}
 Fontana, A. (2023). Unravelling the nexus: Towards a unified model of development, ageing, and cancer. \emph{BioSystems}, 234, 105066. \url{https://doi.org/10.1016/j.biosystems.2023.105066}
+
+\bibitem{rosen1991}
+Rosen, R. (1991). \emph{Life Itself: A Comprehensive Inquiry into the Nature, Origin, and Fabrication of Life}. Columbia University Press.
 
 \end{thebibliography}
 
