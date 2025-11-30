@@ -109,6 +109,8 @@ We propose a complementary perspective grounded in continuous physics. Instead o
 
 This shift matters because computational metaphors implicitly assume something like ergodicity: that given enough time or trials, the system can explore its state space. Continuous high-dimensional dynamics reveals why this assumption fails in biological time. The state space is too vast; trajectories are trapped. The phenotype is not the output of a computation but the basin into which a physical system settled.
 
+The distinction is not merely philosophical. Algorithms are abstractions that can, in principle, explore any computable state space given sufficient steps. Physical dynamical systems cannot. When dimensionality is high, state space volume grows exponentially while trajectory length grows only linearly with time \cite{bellman1957}. This is the ``curse of dimensionality''---not a computational inconvenience but a fundamental barrier. Bayesian inference becomes intractable as posteriors concentrate on measure-zero manifolds \cite{gelman2014}; MCMC samplers fail to mix as dimension increases \cite{roberts1997}; even exhaustive search becomes impossible. Levinthal's paradox \cite{levinthal1969} made this vivid for protein folding: a polypeptide cannot explore all conformations, so folding must follow constrained trajectories through funnel-shaped landscapes. The same logic applies to development, at a vastly larger scale.
+
 \subsection{Low-Dimensional Anchors}
 
 If developmental state space is vast and trajectories are trapped, what prevents phenotypic chaos? The answer is \textit{anchoring} by low-dimensional constraints.
@@ -551,6 +553,18 @@ Fontana, A. (2023). Unravelling the nexus: Towards a unified model of developmen
 
 \bibitem{rosen1991}
 Rosen, R. (1991). \emph{Life Itself: A Comprehensive Inquiry into the Nature, Origin, and Fabrication of Life}. Columbia University Press.
+
+\bibitem{bellman1957}
+Bellman, R. (1957). \emph{Dynamic Programming}. Princeton University Press.
+
+\bibitem{gelman2014}
+Gelman, A., Carlin, J.B., Stern, H.S., Dunson, D.B., Vehtari, A., \& Rubin, D.B. (2014). \emph{Bayesian Data Analysis} (3rd ed.). CRC Press.
+
+\bibitem{roberts1997}
+Roberts, G.O., Gelman, A., \& Gilks, W.R. (1997). Weak convergence and optimal scaling of random walk Metropolis algorithms. \emph{Annals of Applied Probability}, 7(1), 110--120. \url{https://doi.org/10.1214/aoap/1034625254}
+
+\bibitem{levinthal1969}
+Levinthal, C. (1969). How to fold graciously. In \emph{M\"{o}ssbauer Spectroscopy in Biological Systems: Proceedings of a Meeting held at Allerton House, Monticello, Illinois} (pp. 22--24). University of Illinois Press.
 
 \end{thebibliography}
 
