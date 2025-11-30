@@ -762,7 +762,7 @@ if __name__ == '__main__':
     print("Generating figures for Nonergodic Development paper...")
     print("=" * 50)
 
-    # Generate in manuscript order
+    # Generate core paper figures (1-6)
     figure1_same_genotype_different_phenotype()
     figure2_population_level_patterns()
     figure3_causal_dags()
@@ -771,4 +771,6 @@ if __name__ == '__main__':
     figure6_intervention_test()
 
     print("=" * 50)
-    print("All figures generated in figures/ directory")
+    print("Core figures generated in figures/ directory")
+    print("\nFor multilevel simulation figures (7-8), run:")
+    print("  python3 multilevel_simulation.py")

@@ -14,14 +14,14 @@
 
 % Theorems
 \newtheorem{theorem}{Theorem}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}{Remark}
 
 % Shortcuts
 \newcommand{\R}{\mathbb{R}}
@@ -42,10 +42,10 @@ University of Sydney\\
 \maketitle
 
 \begin{abstract}
-Biological development is a high-dimensional dynamical process that cannot explore its state space in finite time---it is \textit{nonergodic}. We argue that this nonergodicity, combined with low-dimensional genetic anchors, is the fundamental reason why genotype does not algorithmically determine phenotype. The genome constrains which regions of developmental state space are reachable, but environmental history determines which attractor basin the system occupies. Using a minimal developmental network model, we demonstrate that (1) identical genotypes produce substantially different phenotypes depending on which trajectory the system follows, (2) these trapped states constitute ``developmental memory'' that is invisible to genetic analysis, and (3) the ``dimensional gap'' $\Delta_D$ between genetic parameters and developmental degrees of freedom quantifies this non-identifiability. We apply this framework to recent findings on cooperative lifestyles and cancer prevalence, showing that the pattern ``cooperative species have less cancer'' admits both allele-based and trajectory-based interpretations. The models diverge only under environmental intervention. Allele stories are not wrong but are projections that discard the nonergodic structure of development.
+Biological development is a high-dimensional dynamical process that cannot explore its state space in finite time---it is \textit{nonergodic}. We argue that this nonergodicity, combined with low-dimensional genetic anchors, is the fundamental reason why genotype does not algorithmically determine phenotype. The genome constrains which regions of developmental state space are reachable, but environmental history determines which attractor basin the system occupies. Using a minimal developmental network model, we demonstrate that (1) identical genotypes produce substantially different phenotypes depending on which trajectory the system follows, (2) these trapped states constitute ``developmental memory'' that is invisible to genetic analysis, and (3) the ``dimensional gap'' $\Delta_D$ between genetic parameters and developmental degrees of freedom quantifies this non-identifiability. We apply this framework to recent findings on cooperative lifestyles and cancer prevalence, showing that the pattern ``cooperative species have less cancer'' admits both allele-based and trajectory-based interpretations. Using Price equation decomposition, we demonstrate that ``fractal coherence'' is a self-stabilizing attractor: cooperative groups construct the low-volatility niches required to maintain high-coherence developmental trajectories, creating a scale-free feedback loop from cells to societies. The models diverge only under environmental intervention. Allele stories are not wrong but are projections that discard the nonergodic structure of development.
 \end{abstract}
 
-\textbf{Keywords:} nonergodicity, developmental dynamics, genotype-phenotype map, epigenetic memory, attractor basins, dimensional constraints
+\textbf{Keywords:} nonergodicity, developmental dynamics, genotype-phenotype map, epigenetic memory, attractor basins, dimensional constraints, multilevel selection, Price equation
 
 \section{Introduction}
 
@@ -89,7 +89,7 @@ A dynamical system is \textit{ergodic} if, given sufficient time, its trajectory
 
 A subtlety: high dimensionality alone does not guarantee nonergodicity. A liter of air at room temperature is extraordinarily high-dimensional ($\sim 10^{23}$ molecules, each with position and momentum), yet statistical mechanics treats it as ergodic and succeeds. The difference is \textit{structure}. Air molecules are interchangeable; their specific configuration carries no information; the system equilibrates rapidly and forgets its history. Biological systems are different: cells are not interchangeable, specific configurations matter, and developmental history is retained in the system's structure.
 
-The relevant criterion is: \textbf{high dimensionality + structured coupling + information retention = nonergodicity}. When the system's state carries information that must be preserved---when configurations are not equivalent---then exploration becomes constrained. State space volume still grows exponentially with dimension ($k^D$), trajectory length still grows linearly with time, but now the system cannot simply diffuse through phase space. It must maintain coherence. It becomes trapped.
+The relevant criterion is: \textbf{high dimensionality + structured coupling + information retention = nonergodicity}. When the system's state carries information that must be preserved---when configurations are not equivalent---then exploration becomes constrained. State space volume still grows exponentially with dimension ($b^D$ for some base $b$), trajectory length still grows linearly with time, but now the system cannot simply diffuse through phase space. It must maintain coherence. It becomes trapped.
 
 Biological systems satisfy all three conditions. A gene regulatory network with $N$ genes has $k^N$ possible expression states, but these states are not equivalent---they correspond to different cell types, different developmental stages, different functional outcomes. The system is strongly coupled through regulatory feedback; it retains information in its epigenetic state; it cannot equilibrate without losing its identity. Development, behavior, physiology, and cognition all unfold in state spaces too vast to explore and too structured to forget. High-dimensional biological systems are nonergodic by necessity, not by accident.
 
@@ -216,6 +216,23 @@ We define two environmental regimes that guide trajectories into different attra
 
 \noindent\textbf{Note on model scope:} The developmental network is intentionally minimal and not fitted to any species. Its role is illustrative: to instantiate the dimensional and identifiability arguments with a concrete dynamical system, not to make quantitative predictions about specific organisms.
 
+\subsection{Evolutionary Extension: Coherence as a Self-Stabilizing Attractor}
+
+Coherence is not merely a phenotypic outcome---it is self-reinforcing. High-coherence organisms create stable group environments; stable environments enable coordinated development; coordinated development produces high-coherence offspring. This feedback loop is an attractor at the social scale, mirroring the attractor dynamics at the cellular scale. To test whether this self-stabilization is evolutionarily robust, we extended the model to a multilevel simulation. We simulate $N=30$ groups of organisms evolving over 60 generations:
+\begin{itemize}
+    \item \textbf{Group selection:} Groups compete based on their aggregate coherence. More cooperative groups create more stable developmental environments for their members. Groups reproduce via multinomial sampling weighted by group fitness.
+    \item \textbf{Individual selection:} Within groups, organisms compete based on a fitness function that includes synergistic benefits from cooperation: $w_i = 1 + \beta \cdot C_g \cdot c_i - k \cdot \mu_i$, where $C_g$ is the group's mean coherence and $c_i$ is the individual's coherence.
+    \item \textbf{Price equation decomposition:} Following the standard multilevel Price decomposition \cite{price1970,frank1997,okasha2006}, the change in mean coherence $\bar{c}$ can be written as:
+    \begin{equation}\label{eq:price}
+        \Delta \bar{c} = \underbrace{\frac{1}{\bar{W}} \text{Cov}_g(W_g, \bar{c}_g)}_{S_{\text{between}}} + \underbrace{\frac{1}{\bar{W}} \mathbb{E}_g\left[\text{Cov}_i(w_{ig}, c_{ig} \mid g)\right]}_{S_{\text{within}}}
+    \end{equation}
+    We compute $S_{\text{between}}$ and $S_{\text{within}}$ directly from the realized fitness weights each generation.
+\end{itemize}
+
+The key feature is the \textit{leaky integrator} for group climate: each generation, the group's coherence state is updated as $C_g \leftarrow 0.8 \cdot C_g + 0.2 \cdot \bar{c}$, where $\bar{c}$ is the current mean coherence. This creates a social attractor: groups with high coherence maintain stable environments that enable coordinated development, which produces high-coherence offspring, reinforcing the attractor.
+
+This evolutionary extension is intentionally stylized: its role is to demonstrate that trajectory-based coherence \textit{can} evolve under multilevel selection, not to quantitatively model any particular lineage.
+
 \subsection{Contrasting Interpretations}
 
 Figure~\ref{fig:dags} illustrates how the same outcome admits two causal interpretations:
@@ -331,11 +348,43 @@ This is the critical empirical test. If moving organisms from competitive to coo
 
 We acknowledge a confound: organisms placed in mismatched environments may show phenotypic changes due to stress rather than trajectory guidance \textit{per se}. Teasing apart ``cooperative cues guide development'' from ``environmental mismatch causes stress'' is difficult. But this difficulty is itself the point: the system is high-dimensional, and clean causal decomposition may be impossible. What cooperative environments provide is \textit{stability}---slower, more predictable conditions that allow cellular trajectories to remain coordinated. Whether we call this ``reduced stress'' or ``trajectory guidance,'' the mechanism is the same: stability enables coherence; instability enables bifurcation. The phenotype emerges from trajectory dynamics that resist simple causal attribution.
 
+\subsection{Nonergodicity at the Social Scale: Fractal Cooperation}
+
+The preceding results demonstrate nonergodicity at the cellular-to-organismal scale: developmental trajectories get trapped in attractor basins, and coherence determines which basin. But coherence is not just a trait---it is \textit{self-stabilizing}. For trapped states to persist over evolutionary time, they must construct the environmental conditions that ensure their own re-creation. This is niche construction at the dynamical systems level.
+
+The result is a scale-free feedback loop: high cellular coherence (cancer suppression) $\to$ viable organisms $\to$ cooperative groups $\to$ stabilized environmental volatility $\to$ high-coherence development in the next generation. This is the ``fractal'' structure: \textbf{organisms that maintain high coherence maintain high coherence}. The property that prevents cellular bifurcation (cancer) is the same property that stabilizes group dynamics (cooperation). Nonergodicity doesn't just trap individual trajectories---it creates nested attractors at every scale where the same coherence parameter operates.
+
+To demonstrate this explicitly, we simulated the co-evolution of social cooperation and cancer suppression over 60 generations. Figure~\ref{fig:price} shows the result.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig7_fractal_price.pdf}
+    \caption{\textbf{Fractal Cooperation and the Price Equation.} (A) Over 60 generations, the population converges on the high-coherence attractor (coherence evolves from $\sim$0.35 to $\sim$0.55). (B) Price Equation decomposition reveals the mechanism: both between-group selection ($S_{\text{between}} > 0$) and within-group selection ($S_{\text{within}} > 0$) favor coherence due to the synergistic fitness structure. (C) Cancer mortality decreases as coherence increases---the same developmental parameter solves problems at both cellular and social scales.}
+    \label{fig:price}
+\end{figure}
+
+The simulation confirms that selection for group-level stability effectively pulls the developmental system toward high-coherence attractors. Notably, both $S_{\text{between}}$ and $S_{\text{within}}$ are positive (Figure~\ref{fig:price}B). This is not a generic result---in many cooperation scenarios, within-group selection favors defection ($S_{\text{within}} < 0$). Here, both terms favor coherence because individual fitness includes the synergy term $\beta \cdot C_g \cdot c_i$: high coherence pays off \textit{more} in cooperative groups. This constructive example shows that when the developmental architecture creates individual-level benefits from coherence in cooperative contexts, selection at all levels can align.
+
+The ``fractal'' nature of the architecture means that solving the social dilemma (stabilizing the group) automatically solves the cellular dilemma (suppressing cancer). This is not coincidence but consequence: the same dynamical structure---high-dimensional development with low-dimensional anchoring---operates at both scales.
+
+Figure~\ref{fig:regimes} shows how different selection regimes affect the outcome. Strong group selection produces the lowest cancer mortality; weaker group selection produces intermediate results.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/fig8_regime_comparison.pdf}
+    \caption{\textbf{Selection Regime Comparison.} (A) Cooperation evolves under all regimes, but strong group selection (green) maintains the highest coherence. (B) Cancer mortality is lowest under strong group selection---confirming that group-level stability recruits the developmental coherence that suppresses cellular bifurcation.}
+    \label{fig:regimes}
+\end{figure}
+
+This provides a mechanistic evolutionary basis for the correlation observed by Sierra et al.\ (2025): cooperative species have lower cancer not (only) because selection modified their genomes, but because cooperative environments \textit{are} the selection pressure that maintains high-coherence developmental attractors. The allele story and the trajectory story are two views of the same underlying process.
+
 \section{Discussion}\label{sec:discussion}
 
 \subsection{Nonergodicity as the Core Insight}
 
 The central contribution of this paper is recognizing that developmental systems are \textit{nonergodic}. The state space is too vast to explore; trajectories are trapped; phenotypes reflect which attractor was entered, not an algorithmic genotype-to-phenotype mapping.
+
+Crucially, the property that creates trapping---coherence---is itself what gets trapped. High-coherence systems maintain high coherence; low-coherence systems maintain low coherence. This self-stabilization operates at every scale: cells within organisms, organisms within groups. What we call ``cooperation'' at the social level and ``developmental coordination'' at the cellular level are the same dynamical phenomenon: attractor stability in a nonergodic system. The ``fractal'' in fractal cooperation is not metaphor but mechanism.
 
 This reframes several longstanding puzzles:
 \begin{itemize}
@@ -346,7 +395,7 @@ This reframes several longstanding puzzles:
 
 \subsection{Steelmanning the Allele View}
 
-Allele-based models are not wrong. Sierra et al.'s finding that cooperative species have lower cancer prevalence is real and important \cite{wagner2011}. Over evolutionary time, selection does modify anchors.
+Allele-based models are not wrong. Sierra et al.'s finding that cooperative species have lower cancer prevalence is real and important \cite{sierra2025}. Over evolutionary time, selection does modify anchors.
 
 Our point is that the aggregate pattern ``cooperative = less cancer'' is equally consistent with:
 \begin{enumerate}
@@ -355,7 +404,7 @@ Our point is that the aggregate pattern ``cooperative = less cancer'' is equally
     \item \textbf{Genetic assimilation:} An initially trajectory-dependent response becomes anchor-encoded through sustained selection.
 \end{enumerate}
 
-These are non-identifiable from comparative data. Distinguishing them requires intervention experiments. Our result should therefore be read as a \textit{completion} of Sierra et al.'s model rather than a refutation: allele-level and trajectory-level accounts are two projections of a single underlying high-dimensional developmental system.
+These are non-identifiable from comparative data. Distinguishing them requires intervention experiments. However, our evolutionary simulation (Figures~\ref{fig:price}--\ref{fig:regimes}; see Section 3.4 for model details) demonstrates that the trajectory-based mechanism is evolutionarily robust: selection for group stability naturally recruits developmental coherence, creating the very correlation between cooperation and cancer suppression that allele models seek to explain. Our result should therefore be read as a \textit{completion} of Sierra et al.'s model rather than a refutation: allele-level and trajectory-level accounts are two projections of a single underlying high-dimensional developmental system.
 
 \subsection{When Nonergodicity Dominates}
 
@@ -491,7 +540,7 @@ Genotype does not algorithmically determine phenotype. Genotype anchors a nonerg
 
 \section*{Data and Code Availability}
 
-Simulation code is available at \url{https://github.com/todd866/nonergodic-development}. The repository includes \texttt{nonergodic\_development.py}, which implements the developmental network (Equations 2--5), generates all figures, and demonstrates the Twin Worlds experiment (Figure~\ref{fig:twins}).
+Simulation code is available at \url{https://github.com/todd866/nonergodic-development}. The repository includes \texttt{nonergodic\_development.py}, which implements the developmental network and generates Figures 1--6, and \texttt{multilevel\_simulation.py}, which implements the evolutionary extension with Price equation decomposition (Figures 7--8).
 
 \section*{Declaration of competing interest}
 The author declares that there are no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
@@ -595,6 +644,15 @@ Levinthal, C. (1969). How to fold graciously. In \emph{M\"{o}ssbauer Spectroscop
 
 \bibitem{peters2019}
 Peters, O. (2019). The ergodicity problem in economics. \emph{Nature Physics}, 15, 1216--1221. \url{https://doi.org/10.1038/s41567-019-0732-0}
+
+\bibitem{price1970}
+Price, G.R. (1970). Selection and covariance. \emph{Nature}, 227(5257), 520--521. \url{https://doi.org/10.1038/227520a0}
+
+\bibitem{frank1997}
+Frank, S.A. (1997). The Price equation, Fisher's fundamental theorem, kin selection, and causal analysis. \emph{Evolution}, 51(6), 1712--1729. \url{https://doi.org/10.1111/j.1558-5646.1997.tb05096.x}
+
+\bibitem{okasha2006}
+Okasha, S. (2006). \emph{Evolution and the Levels of Selection}. Oxford University Press. \url{https://doi.org/10.1093/acprof:oso/9780199267972.001.0001}
 
 \end{thebibliography}
 

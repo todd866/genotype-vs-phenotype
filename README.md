@@ -17,7 +17,8 @@ Biological development is a high-dimensional dynamical process that cannot explo
 ```
 ├── nonergodic_development.tex  # Main paper (LaTeX, BioSystems format)
 ├── nonergodic_development.pdf  # Compiled paper
-├── nonergodic_development.py   # All simulation code
+├── nonergodic_development.py   # Core simulation code (Figs 1-6)
+├── multilevel_simulation.py    # Multilevel selection simulation (Figs 7-8)
 ├── cover_letter.tex            # Cover letter to editor
 └── figures/                    # Generated figures (PDF + PNG)
     ├── fig1_same_genotype.*
@@ -25,17 +26,20 @@ Biological development is a high-dimensional dynamical process that cannot explo
     ├── fig3_causal_dags.*
     ├── fig4_projection_loss.*
     ├── fig5_twin_worlds.*
-    └── fig6_intervention_test.*
+    ├── fig6_intervention_test.*
+    ├── fig7_fractal_price.*      # Price equation decomposition
+    └── fig8_regime_comparison.*  # Selection regime comparison
 ```
 
 ## Running the Code
 
 ```bash
 pip install numpy matplotlib scipy scikit-learn
-python nonergodic_development.py
+python nonergodic_development.py   # Generates figures 1-6
+python multilevel_simulation.py    # Generates figures 7-8
 ```
 
-This generates all 6 figures in the `figures/` directory and exactly reproduces the plots in the paper.
+This generates all 8 figures in the `figures/` directory.
 
 ---
 
@@ -83,8 +87,12 @@ The figures were designed to tell a specific story:
 | **Fig 4** | Information loss under projection (the dimensional gap) |
 | **Fig 5** | "Twin Worlds" - the decisive demonstration |
 | **Fig 6** | Where the models diverge (intervention test) |
+| **Fig 7** | "Fractal Price" - multilevel selection with Price equation decomposition |
+| **Fig 8** | Selection regime comparison - group selection enables cooperation |
 
 Figure 5 is the key result: identical genotype distributions in different environments produce patterns a naive allele model would interpret as genetic differences.
+
+Figures 7-8 extend the model to evolutionary time, showing that the same developmental architecture (coherence) that suppresses cancer also enables social cooperation - a "fractal" structure where the same mechanism operates at multiple scales.
 
 ### What the AI Did vs. What I Did
 
@@ -118,6 +126,22 @@ Where:
 The phenotype is a linear readout: `x = W_out · h_T`
 
 Cancer mortality emerges via: `μ_S = μ_0(1 - α · c)` where `c` is developmental coherence—how coordinated the trajectory was. Cancer is attractor bifurcation: cells diverging from the organismal trajectory.
+
+## Multilevel Simulation (Fractal Cooperation)
+
+The `multilevel_simulation.py` extends the model to evolutionary time with explicit multilevel selection:
+
+- **Organisms** develop phenotypes via the developmental network
+- **Groups** provide the developmental environment (more cooperative groups → more stable environments)
+- **Selection** operates at both levels: between-group (cooperative groups outcompete) and within-group (individuals compete)
+
+The **Price equation** decomposes selection into:
+- `S_between`: Selection due to group differences (favors cooperation)
+- `S_within`: Selection due to individual differences (can favor defection)
+
+Key finding: **The same coherence parameter (c) that suppresses cancer also drives cooperation**. This is "fractal" because the same dynamical structure (high-D development + low-D anchor → attractor trapping) operates at multiple scales:
+- Cells cooperating within organisms (coherence prevents cancer)
+- Organisms cooperating within groups (coherence creates stable environment)
 
 ## Key Result
 
